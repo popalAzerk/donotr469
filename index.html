@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Puces Apple expliquées — Guide Genius Bar</title>
+<meta name="description" content="Comprendre les puces Apple sans jargon : M5, M6, Ultra, Neural Engine. Comparatifs et assistant de choix.">
+<style>
+  :root{
+    --bg:#0B0E17; --bg2:#111524;
+    --ink:#EDEFF5; --ink-dim:#A8B0C2; --ink-faint:#6E778E;
+    --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.09);
+    --hair:rgba(255,255,255,.10); --hair-soft:rgba(255,255,255,.06);
+    --blue:#0A84FF; --green:#30D158; --purple:#BF5AF2; --orange:#FF9F0A; --red:#FF453A;
+    --radius:20px;
+  }
+  [data-theme="light"]{
+    --bg:#F5F6F8; --bg2:#FFFFFF;
+    --ink:#1C1C22; --ink-dim:#4A5163; --ink-faint:#8A90A2;
+    --glass:rgba(0,0,0,.035); --glass-strong:rgba(0,0,0,.06);
+    --hair:rgba(0,0,0,.10); --hair-soft:rgba(0,0,0,.05);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:'SF Pro Text',-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.55;
+    min-height:100vh;
+  }
+  .aurora{
+    position:fixed;inset:0;z-index:-2;pointer-events:none;
+    background:
+      radial-gradient(60% 50% at 15% 0%, rgba(10,132,255,.16), transparent 60%),
+      radial-gradient(50% 40% at 90% 10%, rgba(191,90,242,.12), transparent 60%),
+      radial-gradient(40% 40% at 50% 100%, rgba(48,209,88,.08), transparent 60%);
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:24px 18px 80px}
+  header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
+  .brand h1{font-family:'SF Pro Display',-apple-system,sans-serif;font-size:26px;font-weight:800;letter-spacing:-.02em}
+  .brand .sub{font-size:13px;color:var(--ink-dim);margin-top:2px}
+  .themeBtn{
+    border:1px solid var(--hair);background:var(--glass);color:var(--ink);
+    border-radius:999px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;
+  }
+  .card{
+    background:var(--glass);border:1px solid var(--hair-soft);border-radius:var(--radius);
+    padding:20px;margin-bottom:16px;backdrop-filter:blur(14px);
+  }
+  h2{font-family:'SF Pro Display',-apple-system,sans-serif;font-size:19px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  .card .sub{font-size:13px;color:var(--ink-dim);margin-bottom:14px}
+  .pill{
+    display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;
+    padding:4px 10px;border-radius:999px;background:var(--glass-strong);border:1px solid var(--hair);
+    color:var(--ink-dim);text-transform:uppercase;
+  }
+  /* Analogy blocks */
+  .analogy{border-left:3px solid var(--blue);padding:12px 14px;background:var(--glass-strong);border-radius:0 14px 14px 0;margin:10px 0}
+  .analogy b{color:var(--ink)}
+  .analogy p{font-size:14.5px;color:var(--ink-dim)}
+  .term{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--hair-soft)}
+  .term:last-child{border-bottom:none}
+  .term .ico{font-size:22px;line-height:1.3}
+  .term h3{font-size:15px;font-weight:700}
+  .term .tech{font-size:11px;font-family:'SF Mono',ui-monospace,Menlo,monospace;color:var(--blue);font-weight:600}
+  .term p{font-size:14px;color:var(--ink-dim);margin-top:2px}
+  /* Comparison table */
+  .cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:13.5px;margin-top:6px}
+  .cmp th,.cmp td{padding:10px 10px;border-bottom:1px solid var(--hair-soft);text-align:left;vertical-align:top}
+  .cmp th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);font-weight:700}
+  .cmp td:first-child{color:var(--ink-faint);font-weight:600;width:34%}
+  .cmp .win{color:var(--green);font-weight:600}
+  .cmp tr:last-child td{border-bottom:none}
+  .barrow{margin:12px 0}
+  .barrow .lbl{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px}
+  .barrow .lbl b{font-weight:700}
+  .barrow .lbl span{color:var(--ink-faint);font-family:'SF Mono',ui-monospace,monospace}
+  .bar{height:10px;border-radius:5px;background:var(--glass-strong);overflow:hidden;position:relative}
+  .bar i{position:absolute;top:0;bottom:0;border-radius:5px;display:block}
+  .bar .b1{background:linear-gradient(90deg,#5E5CE6,#BF5AF2)}
+  .bar .b2{background:linear-gradient(90deg,#0A84FF,#30D158)}
+  .vshead{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+  .vshead .chip{text-align:center;padding:10px;border-radius:14px;background:var(--glass-strong);border:1px solid var(--hair-soft);font-weight:700;font-size:14px}
+  .chip .small{display:block;font-size:11px;color:var(--ink-faint);font-weight:500;margin-top:2px}
+  .verdict{padding:12px 14px;border-radius:14px;font-size:14px;margin-top:12px}
+  .verdict.v-green{background:rgba(48,209,88,.10);border:1px solid rgba(48,209,88,.25)}
+  .verdict.v-blue{background:rgba(10,132,255,.10);border:1px solid rgba(10,132,255,.25)}
+  .verdict.v-purple{background:rgba(191,90,242,.10);border:1px solid rgba(191,90,242,.25)}
+  /* Quiz */
+  .q{padding:14px 0;border-bottom:1px solid var(--hair-soft)}
+  .q:last-child{border:none}
+  .q h3{font-size:15px;margin-bottom:10px}
+  .q h3 .n{display:inline-block;width:24px;height:24px;border-radius:8px;background:var(--blue);color:#fff;font-size:12px;text-align:center;line-height:24px;margin-right:8px;font-family:'SF Mono',monospace}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  @media(max-width:560px){.opts{grid-template-columns:1fr}}
+  .opt{
+    padding:12px 14px;border-radius:12px;border:1px solid var(--hair);background:var(--glass);
+    cursor:pointer;font-size:14px;color:var(--ink);transition:all .15s;text-align:left;font-family:inherit;
+  }
+  .opt:hover{background:var(--glass-strong)}
+  .opt.sel{border-color:var(--blue);background:rgba(10,132,255,.12);font-weight:600}
+  .result{margin-top:14px;padding:16px;border-radius:16px;display:none}
+  .result.show{display:block}
+  .result h3{font-size:17px;margin-bottom:4px}
+  .result .why{font-size:14px;color:var(--ink-dim)}
+  .badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px}
+  .faq details{padding:10px 0;border-bottom:1px solid var(--hair-soft)}
+  .faq details:last-child{border:none}
+  .faq summary{cursor:pointer;font-size:14.5px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  .faq summary::after{content:'+';font-size:18px;color:var(--ink-faint);font-weight:400}
+  .faq details[open] summary::after{content:'–'}
+  .faq .a{font-size:14px;color:var(--ink-dim);padding:8px 0 2px}
+  .quote{font-size:14.5px;color:var(--ink);background:var(--glass-strong);border-radius:14px;padding:12px 14px;margin-top:8px;border:1px solid var(--hair-soft)}
+  footer{margin-top:26px;text-align:center;font-size:12px;color:var(--ink-faint)}
+  .disclaimer{font-size:12px;color:var(--ink-faint);margin-top:14px;padding-top:12px;border-top:1px solid var(--hair-soft)}
+  @media print{.aurora{display:none}.card{break-inside:avoid;border:1px solid #ccc}}
+</style>
+</head>
+<body>
+<div class="aurora"></div>
+<div class="wrap">
+
+<header class="top">
+  <div class="brand">
+    <span class="pill">Guide Genius Bar</span>
+    <h1>Puces Apple, expliquées simplement</h1>
+    <div class="sub">M5 · M6 · Ultra · Neural Engine — sans jargon</div>
+  </div>
+  <button class="themeBtn" onclick="toggleTheme()">☀️ / 🌙</button>
+</header>
+
+<!-- INTRO -->
+<section class="card">
+  <h2>🏛️ L'image à garder en tête</h2>
+  <div class="sub">Une phrase de 30 secondes à sortir en boutique</div>
+  <div class="quote">« Une puce Apple, c'est une <b>équipe complète</b> rangée dans un seul petit bâtiment. Il y a les <b>polyvalents</b> qui réfléchissent, les <b>artistes</b> qui dessinent, et un <b>spécialiste de l'intelligence artificielle</b>. La seule vraie question, c'est : qu'est-ce que <b>vous</b> faites avec votre Mac ? »</div>
+  <p style="font-size:13.5px;color:var(--ink-dim);margin-top:10px">Chaque nouvelle génération (M1 → M2 → M3 → M4 → M5 → M6) ne rend pas l'ancienne « inutilisable » : elle rend la machine <b>plus rapide, plus économe et plus douée pour l'IA</b>. Le bon choix dépend de l'usage, pas du numéro.</p>
+</section>
+
+<!-- LES TERMES -->
+<section class="card">
+  <h2>🗣️ Le jargon, traduit en langage client</h2>
+  <div class="sub">Chaque terme technique → son équivalent du quotidien</div>
+
+  <div class="term">
+    <div class="ico">🧠</div>
+    <div>
+      <h3>CPU — « les polyvalents » <span class="tech">CPU · cœurs</span></h3>
+      <p>Ils font des choses différentes à chaque instant : ouvrir une app, afficher une page, compresser un fichier. Plus il y en a, plus la machine enchaîne de tâches en même temps. Les cœurs « super » sont les chefs ultra-rapides ; les cœurs « efficience » gèrent le quotidien sans vider la batterie.</p>
+    </div>
+  </div>
+
+  <div class="term">
+    <div class="ico">🎨</div>
+    <div>
+      <h3>GPU — « la brigade des images » <span class="tech">GPU · graphismes</span></h3>
+      <p>C'est la brigade qui répète le même geste des millions de fois : afficher chaque pixel, calculer chaque image d'un jeu ou d'un montage vidéo. Les gros chantiers visuels, c'est elle.</p>
+    </div>
+  </div>
+
+  <div class="term">
+    <div class="ico">🤖</div>
+    <div>
+      <h3>Neural Engine — « le spécialiste IA » <span class="tech">NPU · Neural Engine</span></h3>
+      <p>Son seul métier : <b>reconnaître et comprendre</b> — un visage dans une photo, une phrase dictée, une traduction. Il fait ça très vite sans fatiguer la batterie, et tout reste <b>sur l'appareil</b> : rien ne part sur internet. C'est lui qui fait répondre Siri, trier les photos et traduire hors-ligne.</p>
+    </div>
+  </div>
+
+  <div class="term">
+    <div class="ico">🗄️</div>
+    <div>
+      <h3>Mémoire unifiée — « une seule grande table » <span class="tech">Unified Memory · RAM</span></h3>
+      <p>Imaginez une seule grande table de travail où toute l'équipe pioche les mêmes dossiers. Le chef, les artistes et le spécialiste IA n'ont pas besoin de faire des photocopies : tout le monde lit la même source. C'est pour ça qu'un Mac avec « seulement » 32 Go va aussi vite qu'un PC avec davantage.</p>
+    </div>
+  </div>
+
+  <div class="term">
+    <div class="ico">🚪</div>
+    <div>
+      <h3>Bande passante — « la largeur du couloir » <span class="tech">GB/s · TB/s</span></h3>
+      <p>C'est la largeur du couloir entre l'équipe et la grande table. Un couloir large = personne n'attend son tour. C'est LE facteur caché pour l'IA et la vidéo 8K. 1 To/s = un couloir 8× plus large que celui d'un MacBook Air.</p>
+    </div>
+  </div>
+
+  <div class="term">
+    <div class="ico">🔬</div>
+    <div>
+      <h3>2 nanomètres — « la finesse de fabrication » <span class="tech">Process · N2</span></h3>
+      <p>Plus c'est petit, plus on range de composants au même endroit — et moins ça consomme. Le M6 est le premier Mac gravé en 2 nm : même puissance, moins d'énergie. Concrètement : une batterie qui dure plus longtemps.</p>
+    </div>
+  </div>
+
+  <div class="term">
+    <div class="ico">🤝</div>
+    <div>
+      <h3>UltraFusion — « plusieurs puces soudées » <span class="tech">Fusion · Quad-die</span></h3>
+      <p>On a soudé plusieurs puces pour qu'elles travaillent comme une seule. Le M5 Ultra, c'est 4 puces M5 Max qui ne font qu'un : la super-team. Le logiciel ne voit qu'une seule machine.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FICHE 1 : M5 vs M6 -->
+<section class="card">
+  <h2>📇 Fiche 1 — M5 vs M6</h2>
+  <div class="sub">La génération précédente face à la nouvelle (annoncée le 25 août 2026)</div>
+
+  <div class="vshead">
+    <div class="chip">🍎 M5<span class="small">oct. 2025 · 3 nm</span></div>
+    <div class="chip">🍎 M6<span class="small">août 2026 · 2 nm</span></div>
+  </div>
+
+  <table class="cmp">
+    <tr><th>Critère</th><th>M5</th><th>M6</th></tr>
+    <tr><td>CPU (polyvalents)</td><td>10 cœurs (4 super + 6 efficience)</td><td class="win">12 cœurs (2 super + 4 perf + 6 efficience)</td></tr>
+    <tr><td>GPU (images)</td><td>8 ou 10 cœurs</td><td class="win">12 cœurs, accélérateur IA par cœur</td></tr>
+    <tr><td>Neural Engine (IA)</td><td>16 cœurs</td><td class="win">Double 16 cœurs — IA ×2</td></tr>
+    <tr><td>Couloir mémoire</td><td>153 Go/s</td><td class="win">170 Go/s</td></tr>
+    <tr><td>Gravure</td><td>3 nm</td><td class="win">2 nm — 1ʳᵉ puce Apple</td></tr>
+    <tr><td>Mémoire max</td><td>32 Go</td><td>32 Go</td></tr>
+    <tr><td>Machine</td><td>MacBook Pro, iPad Pro, Air, Vision Pro</td><td>Mac mini</td></tr>
+  </table>
+
+  <div class="barrow">
+    <div class="lbl"><b>Usage quotidien (bureautique, web, photos)</b><span>M5 ▓▓▓▓▓▓▓▓░░ +15-25% · M6 ▓▓▓▓▓▓▓▓▓░</span></div>
+    <div class="bar"><i class="b1" style="left:0;width:80%"></i><i class="b2" style="left:80%;width:15%"></i></div>
+  </div>
+  <div class="barrow">
+    <div class="lbl"><b>Tâches IA sur l'appareil</b><span>M5 ▓▓▓▓░░░░░░ · M6 ▓▓▓▓▓▓▓▓░░ ×2</span></div>
+    <div class="bar"><i class="b1" style="left:0;width:40%"></i><i class="b2" style="left:40%;width:40%"></i></div>
+  </div>
+  <div class="barrow">
+    <div class="lbl"><b>Efficacité énergétique</b><span>M5 ▓▓▓▓▓▓▓░░░ · M6 ▓▓▓▓▓▓▓▓▓░</span></div>
+    <div class="bar"><i class="b1" style="left:0;width:70%"></i><i class="b2" style="left:70%;width:20%"></i></div>
+  </div>
+
+  <div class="verdict v-green">
+    💬 <b>En boutique :</b> « Non, le M6 n'est pas deux fois mieux. En usage courant c'est 15 à 30 % de plus. Le vrai saut, c'est l'IA (deux fois plus performante) et la consommation. Vous le sentirez sur la batterie et Siri, pas sur Mail. »
+  </div>
+</section>
+
+<!-- FICHE 2 : M3 Ultra vs M5 Ultra -->
+<section class="card">
+  <h2>📇 Fiche 2 — M3 Ultra vs M5 Ultra</h2>
+  <div class="sub">L'ancienne super-team (2025) face à la nouvelle (Mac Studio, dès 5 499 $)</div>
+
+  <div class="vshead">
+    <div class="chip">🍎 M3 Ultra<span class="small">2 puces soudées</span></div>
+    <div class="chip">🍎 M5 Ultra<span class="small">4 puces soudées — inédit</span></div>
+  </div>
+
+  <table class="cmp">
+    <tr><th>Critère</th><th>M3 Ultra</th><th>M5 Ultra</th></tr>
+    <tr><td>Architecture</td><td>2 dies via UltraFusion</td><td class="win">4 dies (2× M5 Max) — 1ʳᵉ quad-die Apple</td></tr>
+    <tr><td>CPU</td><td>28/32 cœurs (24P + 8E)</td><td class="win">30/36 cœurs (12 super + 24 perf)</td></tr>
+    <tr><td>GPU</td><td>60/80 cœurs, sans accélérateur IA</td><td class="win">64/80 cœurs, accélérateur IA par cœur</td></tr>
+    <tr><td>Neural Engine</td><td>32 cœurs</td><td>32 cœurs (mémoire plus rapide)</td></tr>
+    <tr><td>Couloir mémoire</td><td>819 Go/s</td><td class="win">1,2 To/s (+50 %)</td></tr>
+    <tr><td>Gravage entre puces</td><td>UltraFusion</td><td class="win">UltraFusion 2 : 4,4 To/s, densité ×6</td></tr>
+    <tr><td>Mémoire max</td><td>512 Go</td><td>512 Go</td></tr>
+    <tr><td>Graphismes</td><td>—</td><td class="win">+40 % vs M3 Ultra</td></tr>
+    <tr><td>Calcul IA (GPU)</td><td>—</td><td class="win">×4,5 vs M3 Ultra</td></tr>
+  </table>
+
+  <div class="barrow">
+    <div class="lbl"><b>Montage 8K multi-caméras</b><span>M3 ▓▓▓▓▓▓▓░░░ · M5U ▓▓▓▓▓▓▓▓▓░</span></div>
+    <div class="bar"><i class="b1" style="left:0;width:70%"></i><i class="b2" style="left:70%;width:25%"></i></div>
+  </div>
+  <div class="barrow">
+    <div class="lbl"><b>IA locale (gros modèles de langage)</b><span>M3 ▓▓░░░░░░░░ · M5U ▓▓▓▓▓▓▓▓▓░ ×4,5</span></div>
+    <div class="bar"><i class="b1" style="left:0;width:20%"></i><i class="b2" style="left:20%;width:70%"></i></div>
+  </div>
+
+  <div class="verdict v-purple">
+    💬 <b>En boutique :</b> « Le M5 Ultra, c'est le camion de chantier : 8K en montage, 3D lourde, IA géantes hébergées dans la machine. Pour du Excel + Safari + photos, ce serait payer pour un couloir vide — le M6 ou le M5 Max suffisent largement. »
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="card" id="quiz">
+  <h2>🎯 Assistant de choix — « Quelle puce pour quel usage ? »</h2>
+  <div class="sub">4 questions posées au client, une recommandation en sortie</div>
+
+  <div class="q">
+    <h3><span class="n">1</span>Que fait principalement le client avec son Mac ?</h3>
+    <div class="opts" data-q="1">
+      <button class="opt" data-v="0">Mail, web, photos, bureautique</button>
+      <button class="opt" data-v="1">Photo / musique / petits montages</button>
+      <button class="opt" data-v="2">Montage 4K, code, musique sérieuse</button>
+      <button class="opt" data-v="3">8K, 3D, IA locale, gros calculs</button>
+    </div>
+  </div>
+  <div class="q">
+    <h3><span class="n">2</span>Utilise-t-il l'IA au quotidien (Siri, tri photo, traduction) ?</h3>
+    <div class="opts" data-q="2">
+      <button class="opt" data-v="0">Jamais / à peine</button>
+      <button class="opt" data-v="1">Oui, régulièrement</button>
+      <button class="opt" data-v="2">Oui, et il fait tourner des outils IA sur la machine</button>
+    </div>
+  </div>
+  <div class="q">
+    <h3><span class="n">3</span>L'autonomie est-elle un critère ?</h3>
+    <div class="opts" data-q="3">
+      <button class="opt" data-v="0">Essentiel — il est souvent en déplacement</button>
+      <button class="opt" data-v="1">Moyen — il est surtout branché</button>
+      <button class="opt" data-v="2">Peu important — machine de bureau</button>
+    </div>
+  </div>
+  <div class="q">
+    <h3><span class="n">4</span>Quel budget approximatif ?</h3>
+    <div class="opts" data-q="4">
+      <button class="opt" data-v="0">Contenu (&lt; 1 000 €)</button>
+      <button class="opt" data-v="1">Moyen (1 000 – 3 000 €)</button>
+      <button class="opt" data-v="2">Pro (3 000 € et +)</button>
+    </div>
+  </div>
+
+  <button class="opt" style="width:100%;text-align:center;font-weight:700;border-color:var(--blue)" onclick="computeQuiz()">Voir la recommandation</button>
+
+  <div class="result" id="quizResult"></div>
+</section>
+
+<!-- FAQ -->
+<section class="card faq">
+  <h2>❓ Mini-FAQ — les vraies questions du Genius Bar</h2>
+  <details>
+    <summary>« Le M6, c'est deux fois mieux que le M5 ? »</summary>
+    <div class="a">Non — en usage courant, environ 15 à 30 % plus rapide. Le vrai saut du M6 : l'IA (×2) et l'efficacité (2 nm). Le client le sentira sur la batterie et Siri, pas sur Mail.</div>
+  </details>
+  <details>
+    <summary>« C'est quoi, le Neural Engine, concrètement ? »</summary>
+    <div class="a">Le spécialiste IA de la puce. C'est ce qui fait que Siri répond vite, que les photos se trient toutes seules, que la dictée marche sans internet. Chaque génération le rend plus rapide et plus économe.</div>
+  </details>
+  <details>
+    <summary>« L'Ultra, ça vaut le coup pour moi ? »</summary>
+    <div class="a">Seulement pour du montage 8K, de la 3D ou de l'IA sur la machine. Pour du Excel + Safari + photos, c'est payer pour un couloir vide. Recommander M6 ou M5 Max.</div>
+  </details>
+  <details>
+    <summary>« Pourquoi 512 Go de mémoire dans un Mac Studio ? »</summary>
+    <div class="a">Pour faire tenir un cerveau IA entier dans la machine. Un gros modèle d'IA, c'est un dictionnaire géant : s'il tient sur la table (la mémoire), on consulte tout de suite. S'il ne tient pas, il faut courir à la bibliothèque à chaque question — c'est lent.</div>
+  </details>
+  <details>
+    <summary>« Ma puce M1 est-elle dépassée ? »</summary>
+    <div class="a">Non. Pour du bureautique et du web, un M1 reste excellent en 2026. On change de puce quand un besoin précis n'est plus couvert : autonomie, IA, gros montages — pas par principe.</div>
+  </details>
+</section>
+
+<!-- CLOSING -->
+<section class="card">
+  <h2>🔑 Le raccourci mémorable</h2>
+  <div class="quote">« Il n'y a pas de <b>meilleure</b> puce, il y a la puce <b>dimensionnée pour votre usage</b>. La bonne question : qu'est-ce qui vous frustrerait — que ce soit lent, ou que vous payiez pour de la puissance qui dort ? »</div>
+  <div class="disclaimer">Sources : Apple Newsroom (25 août 2026), fiches techniques Apple. Chiffres constructeur — les gains réels dépendent des logiciels utilisés. Document d'aide à la vente, non contractuel.</div>
+</section>
+
+<footer>Guide puces Apple · popalazerk.com · Pour l'équipe Genius Bar</footer>
+</div>
+
+<script>
+function toggleTheme(){
+  const b=document.body;
+  const cur=b.getAttribute('data-theme')==='light'?'dark':'light';
+  b.setAttribute('data-theme',cur);
+  try{localStorage.setItem('theme',cur)}catch(e){}
+}
+try{if(localStorage.getItem('theme')==='light')document.body.setAttribute('data-theme','light')}catch(e){}
+
+// Quiz
+const answers={1:null,2:null,3:null,4:null};
+document.querySelectorAll('.opts').forEach(g=>{
+  g.querySelectorAll('.opt').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      g.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
+      btn.classList.add('sel');
+      answers[g.dataset.q]=parseInt(btn.dataset.v);
+    });
+  });
+});
+
+function computeQuiz(){
+  const r=document.getElementById('quizResult');
+  if(Object.values(answers).some(v=>v===null)){
+    r.className='result show';
+    r.style.background='rgba(255,159,10,.10)';r.style.border='1px solid rgba(255,159,10,.3)';
+    r.innerHTML='<h3>⚠️ Répondez aux 4 questions</h3><div class="why">Chaque question affine la recommandation.</div>';
+    r.scrollIntoView({behavior:'smooth',block:'nearest'});
+    return;
+  }
+  const [usage,ia,autonomie,budget]=Object.values(answers);
+  // Score par puce
+  const score={m6:0,m5max:0,m5ultra:0};
+  score.m6  += usage===0?3:(usage===1?1:0);
+  score.m6  += ia<2?1:0;
+  score.m6  += autonomie===0?2:0;
+  score.m6  += budget===0?2:(budget===1?1:0);
+  score.m5max += usage===1?2:(usage===2?2:0);
+  score.m5max += ia===1?1:0;
+  score.m5max += budget===1?1:0;
+  score.m5ultra += usage===3?4:0;
+  score.m5ultra += ia===2?2:0;
+  score.m5ultra += autonomie===2?1:0;
+  score.m5ultra += budget===2?2:0;
+  if(usage===2 && score.m5ultra===0) score.m5max+=1;
+
+  const best=Object.entries(score).sort((a,b)=>b[1]-a[1])[0][0];
+  const rec={
+    m6:{
+      badge:'badge',bc:'rgba(48,209,88,.15)',bb:'rgba(48,209,88,.3)',bt:'Usage grand public',
+      t:'🍎 M6 — Mac mini (ou MacBook Air M6 à venir)',
+      w:'L\'usage décrit (bureautique, web, photos, IA au quotidien, autonomie) est exactement le terrain du M6 : premier 2 nm, IA ×2, excellente efficacité. Aucun intérêt à payer plus.'
+    },
+    m5max:{
+      t:'🍎 M5 Pro / M5 Max — MacBook Pro',
+      bc:'rgba(10,132,255,.12)',bb:'rgba(10,132,255,.3)',bt:'Usage pro créatif',
+      w:'Montage, code, musique, photo lourde : le M5 Pro/Max apporte les cœurs et le couloir mémoire nécessaires sans passer à la workstation. 64-128 Go de mémoire unifiée possible.'
+    },
+    m5ultra:{
+      t:'🍎 M5 Ultra — Mac Studio',
+      w:'8K, 3D, IA locale, gros calculs : c\'est le terrain du quad-die. 96 à 512 Go de mémoire unifiée, 1,2 To/s de bande passante, IA ×4,5. Pour ce client, la puissance dormante est un investissement, pas un gaspillage.',
+      bc:'rgba(191,90,242,.12)',bb:'rgba(191,90,242,.3)',bt:'Usage workstation'
+    }
+  }[best];
+  r.className='result show';
+  r.style.background=rec.bc;r.style.border='1px solid '+rec.bb;
+  r.innerHTML=`<span class="badge" style="background:${rec.bc};border:1px solid ${rec.bb}">${rec.bt}</span>
+    <h3>${rec.t}</h3><div class="why">${rec.w}</div>`;
+  r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>
