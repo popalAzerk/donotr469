@@ -31,6 +31,9 @@
 }
 .hero .lede{font-size:clamp(17px,2vw,22px);color:var(--ink-dim);max-width:52ch;margin-top:var(--sp-3);line-height:1.5}
 .hero .scrollcue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);display:flex;flex-direction:column;align-items:center;gap:6px}
+.hud{position:absolute;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);font-weight:500}
+.hud-tl{top:24px;left:0}
+.hud-br{bottom:16px;right:0}
 .hero .scrollcue::after{content:'';width:1px;height:34px;background:linear-gradient(var(--ink-faint),transparent);animation:cue 2.2s var(--ease) infinite}
 @keyframes cue{0%,100%{transform:scaleY(.4);opacity:.4}50%{transform:scaleY(1);opacity:1}}
 
@@ -167,7 +170,8 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
   <h1 class="reveal" data-delay="1">Les puces Apple, expliquées simplement.</h1>
   <p class="lede reveal" data-delay="2">M5, M6, Ultra, Neural Engine — le jargon traduit en langage client. Faites glisser, regardez, conseillez.</p>
   <div class="scrollcue reveal" data-delay="3">Défiler</div>
-</div>
+  <div class="hud hud-tl">Puces Apple</div>
+  <div class="hud hud-br">M5 · M6 · Ultra — Édition 2026</div>
 
 <!-- ============ IMAGE À GARDER EN TÊTE ============ -->
 <section id="image">
@@ -233,7 +237,7 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
   <div class="cnav reveal" data-delay="1">
     <button onclick="carScroll('car-jargon',-1)" aria-label="Précédent">←</button>
     <button onclick="carScroll('car-jargon',1)" aria-label="Suivant">→</button>
-    <div class="ccount" data-for="car-jargon">1 / 7</div>
+    <div class="ccount" data-for="car-jargon">01 / 07</div>
   </div>
 </section>
 
@@ -325,7 +329,7 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
   <div class="cnav reveal" data-delay="1">
     <button onclick="carScroll('car-videos',-1)" aria-label="Précédent">←</button>
     <button onclick="carScroll('car-videos',1)" aria-label="Suivant">→</button>
-    <div class="ccount" data-for="car-videos">1 / 5</div>
+    <div class="ccount" data-for="car-videos">01 / 05</div>
   </div>
 </section>
 
@@ -432,7 +436,7 @@ document.querySelectorAll('.carousel').forEach(c=>{
     const cards=[...c.children];
     const x=c.scrollLeft, w=c.firstElementChild.getBoundingClientRect().width+12;
     const idx=Math.min(cards.length,Math.max(1,Math.round(x/w)+1));
-    if(counter)counter.textContent=idx+' / '+cards.length;
+    if(counter)counter.textContent=String(idx).padStart(2,'0')+' / '+String(cards.length).padStart(2,'0');
     cards.forEach((card,i)=>{
       const center=card.offsetLeft+card.offsetWidth/2;
       const viewCenter=x+c.clientWidth/2;
