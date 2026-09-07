@@ -5,115 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Puces Apple expliquées — Guide Genius Bar</title>
 <meta name="description" content="Comprendre les puces Apple sans jargon : M5, M6, Ultra, Neural Engine. Comparatifs et assistant de choix.">
-<style>
-  :root{
-    --bg:#0B0E17; --bg2:#111524;
-    --ink:#EDEFF5; --ink-dim:#A8B0C2; --ink-faint:#6E778E;
-    --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.09);
-    --hair:rgba(255,255,255,.10); --hair-soft:rgba(255,255,255,.06);
-    --blue:#0A84FF; --green:#30D158; --purple:#BF5AF2; --orange:#FF9F0A; --red:#FF453A;
-    --radius:20px;
-  }
-  [data-theme="light"]{
-    --bg:#F5F6F8; --bg2:#FFFFFF;
-    --ink:#1C1C22; --ink-dim:#4A5163; --ink-faint:#8A90A2;
-    --glass:rgba(0,0,0,.035); --glass-strong:rgba(0,0,0,.06);
-    --hair:rgba(0,0,0,.10); --hair-soft:rgba(0,0,0,.05);
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{
-    font-family:'SF Pro Text',-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,sans-serif;
-    background:var(--bg); color:var(--ink); line-height:1.55;
-    min-height:100vh;
-  }
-  .aurora{
-    position:fixed;inset:0;z-index:-2;pointer-events:none;
-    background:
-      radial-gradient(60% 50% at 15% 0%, rgba(10,132,255,.16), transparent 60%),
-      radial-gradient(50% 40% at 90% 10%, rgba(191,90,242,.12), transparent 60%),
-      radial-gradient(40% 40% at 50% 100%, rgba(48,209,88,.08), transparent 60%);
-  }
-  .wrap{max-width:980px;margin:0 auto;padding:24px 18px 80px}
-  header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
-  .brand h1{font-family:'SF Pro Display',-apple-system,sans-serif;font-size:26px;font-weight:800;letter-spacing:-.02em}
-  .brand .sub{font-size:13px;color:var(--ink-dim);margin-top:2px}
-  .themeBtn{
-    border:1px solid var(--hair);background:var(--glass);color:var(--ink);
-    border-radius:999px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;
-  }
-  .card{
-    background:var(--glass);border:1px solid var(--hair-soft);border-radius:var(--radius);
-    padding:20px;margin-bottom:16px;backdrop-filter:blur(14px);
-  }
-  h2{font-family:'SF Pro Display',-apple-system,sans-serif;font-size:19px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:8px}
-  .card .sub{font-size:13px;color:var(--ink-dim);margin-bottom:14px}
-  .pill{
-    display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;
-    padding:4px 10px;border-radius:999px;background:var(--glass-strong);border:1px solid var(--hair);
-    color:var(--ink-dim);text-transform:uppercase;
-  }
-  /* Analogy blocks */
-  .analogy{border-left:3px solid var(--blue);padding:12px 14px;background:var(--glass-strong);border-radius:0 14px 14px 0;margin:10px 0}
-  .analogy b{color:var(--ink)}
-  .analogy p{font-size:14.5px;color:var(--ink-dim)}
-  .term{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--hair-soft)}
-  .term:last-child{border-bottom:none}
-  .term .ico{font-size:22px;line-height:1.3}
-  .term h3{font-size:15px;font-weight:700}
-  .term .tech{font-size:11px;font-family:'SF Mono',ui-monospace,Menlo,monospace;color:var(--blue);font-weight:600}
-  .term p{font-size:14px;color:var(--ink-dim);margin-top:2px}
-  /* Comparison table */
-  .cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:13.5px;margin-top:6px}
-  .cmp th,.cmp td{padding:10px 10px;border-bottom:1px solid var(--hair-soft);text-align:left;vertical-align:top}
-  .cmp th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);font-weight:700}
-  .cmp td:first-child{color:var(--ink-faint);font-weight:600;width:34%}
-  .cmp .win{color:var(--green);font-weight:600}
-  .cmp tr:last-child td{border-bottom:none}
-  .barrow{margin:12px 0}
-  .barrow .lbl{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px}
-  .barrow .lbl b{font-weight:700}
-  .barrow .lbl span{color:var(--ink-faint);font-family:'SF Mono',ui-monospace,monospace}
-  .bar{height:10px;border-radius:5px;background:var(--glass-strong);overflow:hidden;position:relative}
-  .bar i{position:absolute;top:0;bottom:0;border-radius:5px;display:block}
-  .bar .b1{background:linear-gradient(90deg,#5E5CE6,#BF5AF2)}
-  .bar .b2{background:linear-gradient(90deg,#0A84FF,#30D158)}
-  .vshead{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
-  .vshead .chip{text-align:center;padding:10px;border-radius:14px;background:var(--glass-strong);border:1px solid var(--hair-soft);font-weight:700;font-size:14px}
-  .chip .small{display:block;font-size:11px;color:var(--ink-faint);font-weight:500;margin-top:2px}
-  .verdict{padding:12px 14px;border-radius:14px;font-size:14px;margin-top:12px}
-  .verdict.v-green{background:rgba(48,209,88,.10);border:1px solid rgba(48,209,88,.25)}
-  .verdict.v-blue{background:rgba(10,132,255,.10);border:1px solid rgba(10,132,255,.25)}
-  .verdict.v-purple{background:rgba(191,90,242,.10);border:1px solid rgba(191,90,242,.25)}
-  /* Quiz */
-  .q{padding:14px 0;border-bottom:1px solid var(--hair-soft)}
-  .q:last-child{border:none}
-  .q h3{font-size:15px;margin-bottom:10px}
-  .q h3 .n{display:inline-block;width:24px;height:24px;border-radius:8px;background:var(--blue);color:#fff;font-size:12px;text-align:center;line-height:24px;margin-right:8px;font-family:'SF Mono',monospace}
-  .opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  @media(max-width:560px){.opts{grid-template-columns:1fr}}
-  .opt{
-    padding:12px 14px;border-radius:12px;border:1px solid var(--hair);background:var(--glass);
-    cursor:pointer;font-size:14px;color:var(--ink);transition:all .15s;text-align:left;font-family:inherit;
-  }
-  .opt:hover{background:var(--glass-strong)}
-  .opt.sel{border-color:var(--blue);background:rgba(10,132,255,.12);font-weight:600}
-  .result{margin-top:14px;padding:16px;border-radius:16px;display:none}
-  .result.show{display:block}
-  .result h3{font-size:17px;margin-bottom:4px}
-  .result .why{font-size:14px;color:var(--ink-dim)}
-  .badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px}
-  .faq details{padding:10px 0;border-bottom:1px solid var(--hair-soft)}
-  .faq details:last-child{border:none}
-  .faq summary{cursor:pointer;font-size:14.5px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center}
-  .faq summary::after{content:'+';font-size:18px;color:var(--ink-faint);font-weight:400}
-  .faq details[open] summary::after{content:'–'}
-  .faq .a{font-size:14px;color:var(--ink-dim);padding:8px 0 2px}
-  .quote{font-size:14.5px;color:var(--ink);background:var(--glass-strong);border-radius:14px;padding:12px 14px;margin-top:8px;border:1px solid var(--hair-soft)}
-  footer{margin-top:26px;text-align:center;font-size:12px;color:var(--ink-faint)}
-  .disclaimer{font-size:12px;color:var(--ink-faint);margin-top:14px;padding-top:12px;border-top:1px solid var(--hair-soft)}
-  @media print{.aurora{display:none}.card{break-inside:avoid;border:1px solid #ccc}}
-</style>
+<link rel="stylesheet" href="design.css">
+  <style>
+    /* Fallback sans couleur : les tokens de design.css pilotent tout (dark + light) */
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+  </style>
 </head>
 <body>
 <div class="aurora"></div>
@@ -125,7 +21,7 @@
     <h1>Puces Apple, expliquées simplement</h1>
     <div class="sub">M5 · M6 · Ultra · Neural Engine — sans jargon</div>
   </div>
-  <button class="themeBtn" onclick="toggleTheme()">☀️ / 🌙</button>
+  <button class="themeBtn" onclick="toggleTheme()" aria-label="Changer de thème">Thème</button>
 </header>
 
 <!-- INTRO -->
@@ -354,26 +250,26 @@
 <section class="card">
   <h2>🎬 Animations — à montrer en clientèle</h2>
   <div class="quote">Vidéo de 4-8 s par concept, générées avec Remotion (moteur de rendu React). Cliquez sur ▶ pour lancer — la boucle se rejoue automatiquement.</div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:18px;margin-top:16px">
-    <div class="glass" style="padding:14px;border-radius:var(--radius)">
-      <video src="videos/intro-titre.mp4" poster="videos/intro-titre.jpg" muted playsinline loop controls preload="metadata" style="width:100%;border-radius:12px;display:block;background:#0a0a0f"></video>
-      <div style="font-size:14px;color:var(--ink-dim);margin-top:10px"><b style="color:var(--ink)">Intro</b> — titre d'accroche, à afficher sur l'écran de la salle</div>
+  <div class="vid-grid">
+    <div class="vid-card">
+      <video src="videos/intro-titre.mp4" poster="videos/intro-titre.jpg" muted playsinline loop controls preload="metadata" style="width:100%;border-radius:var(--radius-sm);display:block;background:#000"></video>
+      <div class="vid-caption"><b>Intro</b> — titre d'accroche, à afficher sur l'écran de la salle</div>
     </div>
-    <div class="glass" style="padding:14px;border-radius:var(--radius)">
-      <video src="videos/m5-vs-m6.mp4" poster="videos/m5-vs-m6.jpg" muted playsinline loop controls preload="metadata" style="width:100%;border-radius:12px;display:block;background:#0a0a0f"></video>
-      <div style="font-size:14px;color:var(--ink-dim);margin-top:10px"><b style="color:var(--ink)">M5 vs M6</b> — gravure, CPU, IA : le comparatif animé</div>
+    <div class="vid-card">
+      <video src="videos/m5-vs-m6.mp4" poster="videos/m5-vs-m6.jpg" muted playsinline loop controls preload="metadata" style="width:100%;border-radius:var(--radius-sm);display:block;background:#000"></video>
+      <div class="vid-caption"><b>M5 vs M6</b> — gravure, CPU, IA : le comparatif animé</div>
     </div>
-    <div class="glass" style="padding:14px;border-radius:var(--radius)">
-      <video src="videos/neural-engine.mp4" poster="videos/neural-engine.jpg" muted playsinline loop controls preload="metadata" style="width:100%;border-radius:12px;display:block;background:#0a0a0f"></video>
-      <div style="font-size:14px;color:var(--ink-dim);margin-top:10px"><b style="color:var(--ink)">Neural Engine</b> — le spécialiste IA en 3 barres</div>
+    <div class="vid-card">
+      <video src="videos/neural-engine.mp4" poster="videos/neural-engine.jpg" muted playsinline loop controls preload="metadata" style="width:100%;border-radius:var(--radius-sm);display:block;background:#000"></video>
+      <div class="vid-caption"><b>Neural Engine</b> — le spécialiste IA en 3 barres</div>
     </div>
-    <div class="glass" style="padding:14px;border-radius:var(--radius)">
-      <video src="videos/ultrafusion.mp4" poster="videos/ultrafusion.jpg" muted playsinline loop controls preload="metadata" style="width:100%;border-radius:12px;display:block;background:#0a0a0f"></video>
-      <div style="font-size:14px;color:var(--ink-dim);margin-top:10px"><b style="color:var(--ink)">UltraFusion</b> — deux puces deviennent une Ultra</div>
+    <div class="vid-card">
+      <video src="videos/ultrafusion.mp4" poster="videos/ultrafusion.jpg" muted playsinline loop controls preload="metadata" style="width:100%;border-radius:var(--radius-sm);display:block;background:#000"></video>
+      <div class="vid-caption"><b>UltraFusion</b> — deux puces deviennent une Ultra</div>
     </div>
-    <div class="glass" style="padding:14px;border-radius:var(--radius)">
-      <video src="videos/genius-advice.mp4" poster="videos/genius-advice.jpg" muted playsinline loop controls preload="metadata" style="width:100%;border-radius:12px;display:block;background:#0a0a0f"></video>
-      <div style="font-size:14px;color:var(--ink-dim);margin-top:10px"><b style="color:var(--ink)">La méthode</b> — les 4 questions pour choisir le bon Mac</div>
+    <div class="vid-card">
+      <video src="videos/genius-advice.mp4" poster="videos/genius-advice.jpg" muted playsinline loop controls preload="metadata" style="width:100%;border-radius:var(--radius-sm);display:block;background:#000"></video>
+      <div class="vid-caption"><b>La méthode</b> — les 4 questions pour choisir le bon Mac</div>
     </div>
   </div>
 </section>
@@ -386,9 +282,17 @@ function toggleTheme(){
   const b=document.body;
   const cur=b.getAttribute('data-theme')==='light'?'dark':'light';
   b.setAttribute('data-theme',cur);
+  const btn=document.querySelector('.themeBtn');
+  if(btn){btn.textContent=cur==='light'?'Mode sombre':'Mode clair';btn.setAttribute('aria-label','Passer en mode '+(cur==='light'?'sombre':'clair'));}
   try{localStorage.setItem('theme',cur)}catch(e){}
 }
-try{if(localStorage.getItem('theme')==='light')document.body.setAttribute('data-theme','light')}catch(e){}
+(function(){try{if(localStorage.getItem('theme')==='light'){document.body.setAttribute('data-theme','light');}}catch(e){}})();
+// Synchroniser le libellé du bouton au chargement
+document.addEventListener('DOMContentLoaded',function(){try{
+  const btn=document.querySelector('.themeBtn');
+  if(btn)btn.textContent=document.body.getAttribute('data-theme')==='light'?'Mode sombre':'Mode clair';
+}catch(e){}});
+
 
 // Quiz
 const answers={1:null,2:null,3:null,4:null};

@@ -1,0 +1,37 @@
+@theme {
+  --color-primary: #000000;
+  --color-secondary: #f5f5f7;
+  --color-tertiary: #0071e3;
+  --color-neutral: #1d1d1f;
+  --color-success: #30d158;
+  --color-warning: #ff9f0a;
+  --font-h1: "SF Pro Display";
+  --font-h2: "SF Pro Display";
+  --font-body: "SF Pro Text";
+  --font-caption: "SF Pro Text";
+  --text-h1: 2.125rem;
+  --text-h2: 1.5rem;
+  --text-body: 0.9375rem;
+  --text-caption: 0.875rem;
+  --leading-h1: 1.1;
+  --leading-h2: 1.14;
+  --leading-body: 1.47;
+  --leading-caption: 1.29;
+  --tracking-h1: -0.02em;
+  --tracking-h2: -0.011em;
+  --tracking-body: -0.012em;
+  --tracking-caption: -0.014em;
+  --font-weight-h1: 600;
+  --font-weight-h2: 600;
+  --font-weight-body: 400;
+  --font-weight-caption: 400;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 980px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+}
