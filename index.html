@@ -186,7 +186,7 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
   <div class="bigquote reveal" data-delay="1">« Une puce Apple, c'est <em>une équipe complète</em> dans un seul petit bâtiment : des polyvalents qui réfléchissent, des artistes qui dessinent, et <em>un spécialiste IA</em>. La seule vraie question : qu'est-ce que <em>vous</em> faites avec votre Mac ? »</div>
   <p class="after reveal" data-delay="2">Chaque nouvelle génération (M1 → M6) ne rend pas l'ancienne obsolète : elle rend la machine plus rapide, plus économe et plus douée pour l'IA. Le bon choix dépend de l'usage, pas du numéro.</p>
   <div class="fig-wrap reveal" data-delay="2">
-    <img class="fig" src="videos/neural-engine.gif" alt="CPU, GPU et Neural Engine comparés en trois barres animées" loading="lazy">
+    <img class="fig" src="videos/neural-engine.gif" alt="CPU, GPU et Neural Engine comparés en trois barres animées">
     <div class="fig-cap">Les trois métiers de la puce, en 7 secondes — le spécialiste IA domine le classement : 38 000 milliards d'opérations/seconde.</div>
   </div>
 </section>
@@ -200,6 +200,7 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
   </div>
   <div class="carousel reveal" data-delay="1" id="car-jargon">
     <div class="ccard">
+      <img class="fig" src="videos/pe-cores.gif" alt="Les 12 cœurs du M6 : tâches lourdes vers les super-cœurs, quotidien vers les cœurs efficience" style="margin:0 0 12px">
       <div class="ctag">CPU · cœurs</div>
       <h3>Les polyvalents</h3>
       <p>Ouvrir une app, afficher une page, compresser un fichier. Les cœurs « super » sont les chefs ultra-rapides ; les cœurs « efficience » gèrent le quotidien sans vider la batterie.</p>
@@ -218,6 +219,7 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
       <div class="cfoot">38 000 milliards d'opérations/seconde</div>
     </div>
     <div class="ccard">
+      <img class="fig" src="videos/unified-memory.gif" alt="La mémoire unifiée : CPU, GPU et Neural Engine autour d'une seule grande table" style="margin:0 0 12px">
       <div class="ctag">Unified Memory · RAM</div>
       <h3>Une seule grande table</h3>
       <p>Toute l'équipe pioche les mêmes dossiers sans faire de photocopies. C'est pourquoi un Mac « seulement » 32 Go va aussi vite qu'un PC avec davantage.</p>
@@ -279,10 +281,6 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
     <tr><td>Mémoire max</td><td>32 Go</td><td>32 Go</td></tr>
     <tr><td>Machine</td><td>MacBook Pro, iPad Pro, Air, Vision Pro</td><td>Mac mini</td></tr>
   </table>
-  <div class="fig-wrap reveal" data-delay="1">
-    <img class="fig" src="videos/m5-vs-m6.gif" alt="Comparatif animé M5 vs M6" loading="lazy">
-    <div class="fig-cap">Le comparatif en boucle — gravure, cœurs, IA, efficacité.</div>
-  </div>
   <div class="verdict v-green reveal" data-delay="1" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(48,209,88,.10);border:1px solid rgba(48,209,88,.28)">
     💬 <b>En boutique :</b> « Non, le M6 n'est pas deux fois mieux. En usage courant c'est 15 à 30 % de plus. Le vrai saut, c'est l'IA (×2) et la consommation. Vous le sentirez sur la batterie et Siri, pas sur Mail. »
   </div>
@@ -305,7 +303,7 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
     <tr><td>Calcul IA (GPU)</td><td>—</td><td class="win">×4,5 vs M3 Ultra</td></tr>
   </table>
   <div class="fig-wrap reveal" data-delay="1">
-    <img class="fig" src="videos/ultrafusion.gif" alt="UltraFusion : deux puces fusionnent" loading="lazy">
+    <img class="fig" src="videos/ultrafusion.gif" alt="UltraFusion : deux puces fusionnent">
     <div class="fig-cap">UltraFusion en boucle — deux puces M5 Max soudées ne font qu'un.</div>
   </div>
   <div class="verdict v-purple reveal" data-delay="1" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(191,90,242,.10);border:1px solid rgba(191,90,242,.28)">
@@ -358,10 +356,6 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
       <button class="opt" style="width:100%;text-align:center;font-weight:600;border-color:var(--blue);margin-top:var(--sp-3)" onclick="computeQuiz()">Voir la recommandation</button>
     </div>
     <div style="align-self:start">
-      <div class="fig-wrap" style="margin-top:0">
-        <img class="fig" src="videos/genius-advice.gif" alt="La méthode des 4 questions, en animation" loading="lazy">
-        <div class="fig-cap">La méthode, en boucle — 4 questions, un verdict.</div>
-      </div>
       <div class="result" id="quizResult" style="margin-top:var(--sp-3)"></div>
     </div>
   </div>
