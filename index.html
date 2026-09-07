@@ -51,7 +51,7 @@ section{padding:var(--sp-7) 0;border-top:1px solid var(--hair-soft)}
 
 /* --- Carrousel snap générique --- */
 .carousel{
-  display:grid;grid-auto-flow:column;grid-auto-columns:min(78%,420px);
+  display:grid;grid-auto-flow:column;grid-auto-columns:min(72%,560px);
   gap:var(--sp-3);overflow-x:auto;overscroll-behavior-x:contain;
   scroll-snap-type:x mandatory;padding:4px 4px var(--sp-3);
   scrollbar-width:thin;scrollbar-color:var(--hair) transparent;
@@ -65,9 +65,11 @@ section{padding:var(--sp-7) 0;border-top:1px solid var(--hair-soft)}
 /* Carte carrousel */
 .ccard{
   background:var(--glass);border:1px solid var(--hair-soft);border-radius:var(--radius-lg);
-  padding:var(--sp-4);display:flex;flex-direction:column;gap:8px;
+  padding:0;overflow:hidden;display:flex;flex-direction:column;
   transition:border-color var(--dur-1) var(--ease),transform var(--dur-2) var(--ease);
 }
+.ccard > .fig{margin:0!important;border-radius:0;width:100%;aspect-ratio:16/10;object-fit:cover}
+.ccard > .cbody{padding:var(--sp-4);display:flex;flex-direction:column;gap:8px;flex:1}
 .ccard:hover{transform:translateY(-3px)}
 .ccard .ctag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-link);font-weight:600;font-family:var(--font-m)}
 .ccard h3{font-family:var(--font-d);font-size:20px;font-weight:600;letter-spacing:-.01em}
@@ -146,8 +148,9 @@ section{padding:var(--sp-7) 0;border-top:1px solid var(--hair-soft)}
 footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-faint)}
 
 @media(max-width:640px){
-  .carousel{grid-auto-columns:min(86%,340px)}
+  .carousel{grid-auto-columns:min(88%,420px)}
   section{padding:var(--sp-6) 0}
+  .hero-fig{display:none}
 }
 @media(prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none}
@@ -172,6 +175,7 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
   <div class="kicker reveal">Genius Bar · Apple Silicon 2026</div>
   <h1 class="reveal" data-delay="1">Les puces Apple, expliquées simplement.</h1>
   <p class="lede reveal" data-delay="2">M5, M6, Ultra, Neural Engine — le jargon traduit en langage client. Faites glisser, regardez, conseillez.</p>
+  <img class="hero-fig" src="images/hero-chip.png" alt="Puce Apple Silicon en macro cinématique" style="position:absolute;right:-6%;top:52%;transform:translateY(-50%);width:min(44vw,600px);border-radius:24px;opacity:0;transition:opacity 1s ease" onload="this.style.opacity=.9" onerror="this.style.display='none'">
   <div class="scrollcue reveal" data-delay="3">Défiler</div>
   <div class="hud hud-tl">Puces Apple</div>
   <div class="hud hud-br">M5 · M6 · Ultra — Édition 2026</div>
@@ -196,39 +200,67 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
   </div>
   <div class="carousel reveal" data-delay="1" id="car-jargon">
     <div class="ccard">
-      <img class="fig" src="videos/pe-cores.gif" alt="Les 12 cœurs du M6 : tâches lourdes vers les super-cœurs, quotidien vers les cœurs efficience" style="margin:0 0 12px"><h3>Les polyvalents</h3>
-      <p>Ouvrir une app, afficher une page, compresser un fichier. Les cœurs « super » sont les chefs ultra-rapides ; les cœurs « efficience » gèrent le quotidien sans vider la batterie.</p>
-      <div class="cfoot">M5 : 10 cœurs · M6 : 12 cœurs</div>
+      <img class="fig" src="videos/pe-cores.gif" alt="Les 12 cœurs du M6 : tâches lourdes vers les super-cœurs, quotidien vers les cœurs efficience">
+      <div class="cbody">
+        <div class="ctag">CPU · cœurs</div>
+        <h3>Les polyvalents</h3>
+        <p>Ouvrir une app, afficher une page, compresser un fichier. Les cœurs « super » sont les chefs ultra-rapides ; les cœurs « efficience » gèrent le quotidien sans vider la batterie.</p>
+        <div class="cfoot">M5 : 10 cœurs · M6 : 12 cœurs</div>
+      </div>
     </div>
     <div class="ccard">
-      <img class="fig" src="videos/gpu-pixels.gif" alt="La grille de pixels peinte à chaque frame par le GPU" style="margin:0 0 12px"><h3>La brigade des images</h3>
-      <p>Elle répète le même geste des millions de fois : afficher chaque pixel, calculer chaque image d'un jeu ou d'un montage. Les gros chantiers visuels, c'est elle.</p>
-      <div class="cfoot">M6 : accélérateur IA par cœur</div>
+      <img class="fig" src="videos/gpu-pixels.gif" alt="La grille de pixels peinte à chaque frame par le GPU">
+      <div class="cbody">
+        <div class="ctag">GPU · graphismes</div>
+        <h3>La brigade des images</h3>
+        <p>Elle répète le même geste des millions de fois : afficher chaque pixel, calculer chaque image d'un jeu ou d'un montage. Les gros chantiers visuels, c'est elle.</p>
+        <div class="cfoot">M6 : accélérateur IA par cœur</div>
+      </div>
     </div>
     <div class="ccard accent-green">
-      <img class="fig" src="videos/neural-engine.gif" alt="CPU, GPU et Neural Engine comparés : le spécialiste IA domine" style="margin:0 0 12px"><h3>Le spécialiste IA</h3>
-      <p>Son seul métier : reconnaître et comprendre — un visage, une dictée, une traduction. Très vite, sans fatiguer la batterie, et tout reste sur l'appareil.</p>
-      <div class="cfoot">38 000 milliards d'opérations/seconde</div>
+      <img class="fig" src="videos/neural-engine.gif" alt="CPU, GPU et Neural Engine comparés : le spécialiste IA domine">
+      <div class="cbody">
+        <div class="ctag">NPU · Neural Engine</div>
+        <h3>Le spécialiste IA</h3>
+        <p>Son seul métier : reconnaître et comprendre — un visage, une dictée, une traduction. Très vite, sans fatiguer la batterie, et tout reste sur l'appareil.</p>
+        <div class="cfoot">38 000 milliards d'opérations/seconde</div>
+      </div>
     </div>
     <div class="ccard">
-      <img class="fig" src="videos/unified-memory.gif" alt="La mémoire unifiée : une seule grande table, zéro photocopie" style="margin:0 0 12px"><h3>Une seule grande table</h3>
-      <p>Toute l'équipe pioche les mêmes dossiers sans faire de photocopies. C'est pourquoi un Mac « seulement » 32 Go va aussi vite qu'un PC avec davantage.</p>
-      <div class="cfoot">Jusqu'à 512 Go sur Mac Studio</div>
+      <img class="fig" src="videos/unified-memory.gif" alt="La mémoire unifiée : une seule grande table, zéro photocopie">
+      <div class="cbody">
+        <div class="ctag">Unified Memory · RAM</div>
+        <h3>Une seule grande table</h3>
+        <p>Toute l'équipe pioche les mêmes dossiers sans faire de photocopies. C'est pourquoi un Mac « seulement » 32 Go va aussi vite qu'un PC avec davantage.</p>
+        <div class="cfoot">Jusqu'à 512 Go sur Mac Studio</div>
+      </div>
     </div>
     <div class="ccard">
-      <img class="fig" src="videos/bandwidth.gif" alt="Le couloir étroit du MacBook Air face au couloir large du Mac Studio" style="margin:0 0 12px"><h3>La largeur du couloir</h3>
-      <p>La bande passante entre l'équipe et la grande table. Couloir large = personne n'attend. Le facteur caché pour l'IA et la 8K.</p>
-      <div class="cfoot">M5 Ultra : 1,2 To/s — 8× un MacBook Air</div>
+      <img class="fig" src="videos/bandwidth.gif" alt="Le couloir étroit du MacBook Air face au couloir large du Mac Studio">
+      <div class="cbody">
+        <div class="ctag">GB/s · TB/s</div>
+        <h3>La largeur du couloir</h3>
+        <p>La bande passante entre l'équipe et la grande table. Couloir large = personne n'attend. Le facteur caché pour l'IA et la 8K.</p>
+        <div class="cfoot">M5 Ultra : 1,2 To/s — 8× un MacBook Air</div>
+      </div>
     </div>
     <div class="ccard">
-      <img class="fig" src="videos/nm-shrink.gif" alt="Gravure 3 nm vers 2 nm : plus de transistors au même endroit" style="margin:0 0 12px"><h3>2 nanomètres</h3>
-      <p>Plus c'est petit, plus on range de composants au même endroit — et moins ça consomme. Le M6 est la première puce Apple gravée en 2 nm.</p>
-      <div class="cfoot">Concrètement : une batterie qui dure plus longtemps</div>
+      <img class="fig" src="videos/nm-shrink.gif" alt="Gravure 3 nm vers 2 nm : plus de transistors au même endroit">
+      <div class="cbody">
+        <div class="ctag">Process · N2</div>
+        <h3>2 nanomètres</h3>
+        <p>Plus c'est petit, plus on range de composants au même endroit — et moins ça consomme. Le M6 est la première puce Apple gravée en 2 nm.</p>
+        <div class="cfoot">Concrètement : une batterie qui dure plus longtemps</div>
+      </div>
     </div>
     <div class="ccard accent-purple">
-      <img class="fig" src="videos/ultrafusion.gif" alt="Deux puces M5 Max soudées en une Ultra" style="margin:0 0 12px"><h3>UltraFusion</h3>
-      <p>Plusieurs puces soudées qui travaillent comme une seule. Le M5 Ultra, c'est 4 puces M5 Max qui ne font qu'un — le logiciel ne voit qu'une seule machine.</p>
-      <div class="cfoot">UltraFusion 2 : 4,4 To/s entre puces</div>
+      <img class="fig" src="videos/ultrafusion.gif" alt="Deux puces M5 Max soudées en une Ultra">
+      <div class="cbody">
+        <div class="ctag">Fusion · Quad-die</div>
+        <h3>UltraFusion</h3>
+        <p>Plusieurs puces soudées qui travaillent comme une seule. Le M5 Ultra, c'est 4 puces M5 Max qui ne font qu'un — le logiciel ne voit qu'une seule machine.</p>
+        <div class="cfoot">UltraFusion 2 : 4,4 To/s entre puces</div>
+      </div>
     </div>
   </div>
   <div class="cnav reveal" data-delay="1">
