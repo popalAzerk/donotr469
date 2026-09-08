@@ -147,6 +147,51 @@ section{padding:var(--sp-7) 0;border-top:1px solid var(--hair-soft)}
 .finale .bigquote{margin:0 auto}
 footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-faint)}
 
+
+/* --- Menu overlay plein ecran + vues (module recommandation dissocie) --- */
+.top{position:relative;z-index:60}
+.top-actions{display:flex;align-items:center;gap:10px}
+.brand-btn{cursor:pointer;font-family:var(--font-t);transition:background var(--dur-1) var(--ease)}
+.brand-btn:hover{background:var(--glass-strong)}
+.burger{width:44px;height:44px;border-radius:50%;border:1px solid var(--hair);background:var(--glass);display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;transition:background var(--dur-1) var(--ease)}
+.burger:hover{background:var(--glass-strong)}
+.burger span{display:block;width:16px;height:1.5px;border-radius:1px;background:var(--ink);transition:transform var(--dur-1) var(--ease)}
+.burger.open span:nth-child(1){transform:translateY(3.25px) rotate(45deg)}
+.burger.open span:nth-child(2){transform:translateY(-3.25px) rotate(-45deg)}
+
+.menu-overlay{
+  position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;justify-content:center;
+  background:var(--bg);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);
+  opacity:0;visibility:hidden;transition:opacity var(--dur-2) var(--ease),visibility 0s linear var(--dur-2);
+}
+.menu-overlay.open{opacity:1;visibility:visible;transition:opacity var(--dur-2) var(--ease)}
+.menu-list{max-width:760px;width:100%;margin:0 auto;padding:0 var(--sp-4)}
+.menu-item{opacity:0;transform:translateY(22px);transition:opacity var(--dur-2) var(--ease),transform var(--dur-2) var(--ease)}
+.menu-overlay.open .menu-item{opacity:1;transform:none}
+.menu-overlay.open .menu-item:nth-child(1){transition-delay:50ms}
+.menu-overlay.open .menu-item:nth-child(2){transition-delay:100ms}
+.menu-overlay.open .menu-item:nth-child(3){transition-delay:150ms}
+.menu-overlay.open .menu-item:nth-child(4){transition-delay:200ms}
+.menu-item button{
+  display:flex;align-items:baseline;gap:18px;width:100%;text-align:left;
+  background:none;border:none;border-bottom:1px solid var(--hair-soft);
+  padding:18px 0;cursor:pointer;color:var(--ink);font-family:inherit;
+  transition:color var(--dur-1) var(--ease),transform var(--dur-1) var(--ease);
+}
+.menu-item:last-child button{border-bottom:none}
+.menu-item button:hover{color:var(--blue-link);transform:translateX(6px)}
+.menu-item .idx{font-family:var(--font-m);font-size:12px;color:var(--ink-faint);letter-spacing:.12em;transition:color var(--dur-1) var(--ease)}
+.menu-item.active .idx{color:var(--blue-link)}
+.menu-item .lbl{font-family:var(--font-d);font-size:clamp(28px,6vw,52px);font-weight:600;letter-spacing:-.02em;line-height:1.1}
+.menu-item .desc{margin-left:auto;font-size:13px;color:var(--ink-dim)}
+.menu-item.active .lbl{color:var(--blue-link)}
+.menu-foot{max-width:680px;margin:var(--sp-5) auto 0;padding:0 var(--sp-4);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);font-family:var(--font-m)}
+body.menu-open{overflow:hidden}
+.view{display:none}
+.view.active{display:block}
+@media(max-width:640px){.menu-item .desc{display:none}.menu-item button{gap:14px;padding:14px 0}}
+
 @media(max-width:640px){
   .carousel{grid-auto-columns:min(88%,420px)}
   section{padding:var(--sp-6) 0}
@@ -165,11 +210,25 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
 
 <header class="top">
   <div class="brand">
-    <span class="pill">Guide Genius Bar</span>
+    <button class="pill brand-btn" onclick="openView('guide')" title="Retour au guide">Guide Genius Bar</button>
   </div>
-  <button class="themeBtn" onclick="toggleTheme()" aria-label="Changer de thème">Thème</button>
+  <div class="top-actions">
+    <button class="themeBtn" onclick="toggleTheme()" aria-label="Changer de thème">Thème</button>
+    <button class="burger" id="burgerBtn" onclick="toggleMenu()" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
 </header>
 
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+  <nav class="menu-list">
+    <div class="menu-item active" data-view="guide"><button onclick="openView('guide')"><span class="idx">01</span><span class="lbl">Le guide</span><span class="desc">L'essentiel &amp; le jargon</span></button></div>
+    <div class="menu-item" data-view="cmp"><button onclick="openView('cmp')"><span class="idx">02</span><span class="lbl">Le comparatif</span><span class="desc">M5 vs M6 · Ultra</span></button></div>
+    <div class="menu-item" data-view="quiz"><button onclick="openView('quiz')"><span class="idx">03</span><span class="lbl">L'assistant</span><span class="desc">Recommandation en 4 questions</span></button></div>
+    <div class="menu-item" data-view="faq"><button onclick="openView('faq')"><span class="idx">04</span><span class="lbl">La FAQ</span><span class="desc">Les vraies questions client</span></button></div>
+  </nav>
+  <div class="menu-foot">ESC pour fermer</div>
+</div>
+
+<div class="view active" id="view-guide">
 <!-- ============ HERO ============ -->
 <div class="hero">
   <div class="kicker reveal">Genius Bar · Apple Silicon 2026</div>
@@ -181,7 +240,7 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
   <div class="hud hud-br">M5 · M6 · Ultra — Édition 2026</div>
 </div>
 
-<!-- ============ IMAGE À GARDER EN TÊTE ============ -->
+
 <section id="image">
   <div class="sect-head reveal">
     <div class="kicker">01 — L'essentiel</div>
@@ -191,7 +250,7 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
   <p class="after reveal" data-delay="2">Chaque nouvelle génération (M1 → M6) ne rend pas l'ancienne obsolète : elle rend la machine plus rapide, plus économe et plus douée pour l'IA. Le bon choix dépend de l'usage, pas du numéro.</p>
 </section>
 
-<!-- ============ CARROUSEL JARGON ============ -->
+
 <section id="jargon">
   <div class="sect-head reveal">
     <div class="kicker">02 — Le jargon</div>
@@ -270,7 +329,7 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
   </div>
 </section>
 
-<!-- ============ STATS ============ -->
+
 <section id="stats">
   <div class="sect-head reveal">
     <div class="kicker">03 — Les chiffres qui marquent</div>
@@ -283,10 +342,20 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
   </div>
 </section>
 
-<!-- ============ FICHE 1 (tableau) ============ -->
+
+<section class="finale">
+  <div class="bigquote reveal">« Il n'y a pas de <em>meilleure</em> puce, il y a la puce <em>dimensionnée pour votre usage</em>. La bonne question : qu'est-ce qui vous frustrerait — que ce soit lent, ou que vous payiez pour de la puissance qui dort ? »</div>
+  <div class="disclaimer reveal" data-delay="1" style="margin-top:var(--sp-5)">Sources : Apple Newsroom (25 août 2026), fiches techniques Apple. Chiffres constructeur — document d'aide à la vente, non contractuel.</div>
+</section>
+
+</div>
+
+<!-- ============ VUES MODULES (menu) ============ -->
+<div class="view" id="view-cmp">
+
 <section id="m5m6">
   <div class="sect-head reveal">
-    <div class="kicker">03 — Fiche comparatif</div>
+    <div class="kicker">Le comparatif · M5 vers M6</div>
     <h2>M5 vs M6</h2>
     <p>M6 annoncé le 25 août 2026 — premier 2 nm d'Apple.</p>
   </div>
@@ -305,10 +374,10 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
   </div>
 </section>
 
-<!-- ============ FICHE 2 ============ -->
+
 <section id="ultra">
   <div class="sect-head reveal">
-    <div class="kicker">04 — Fiche workstation</div>
+    <div class="kicker">Le comparatif · Workstation</div>
     <h2>M3 Ultra vs M5 Ultra</h2>
     <p>La super-team de 2025 face au premier quad-die d'Apple (Mac Studio, dès 5 499 $).</p>
   </div>
@@ -326,10 +395,13 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
   </div>
 </section>
 
-<!-- ============ QUIZ ============ -->
+</div>
+
+<div class="view" id="view-quiz">
+
 <section id="quiz">
   <div class="sect-head reveal">
-    <div class="kicker">05 — Assistant</div>
+    <div class="kicker">Assistant de recommandation</div>
     <h2>Quelle puce pour quel usage ?</h2>
     <p>4 questions posées au client, une recommandation en sortie.</p>
   </div>
@@ -376,10 +448,13 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
   </div>
 </section>
 
-<!-- ============ FAQ ============ -->
+</div>
+
+<div class="view" id="view-faq">
+
 <section id="faq" class="faq">
   <div class="sect-head reveal">
-    <div class="kicker">06 — Mini-FAQ</div>
+    <div class="kicker">FAQ</div>
     <h2>Les vraies questions du Genius Bar</h2>
   </div>
   <div class="reveal">
@@ -391,11 +466,7 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
   </div>
 </section>
 
-<!-- ============ FINALE ============ -->
-<section class="finale">
-  <div class="bigquote reveal">« Il n'y a pas de <em>meilleure</em> puce, il y a la puce <em>dimensionnée pour votre usage</em>. La bonne question : qu'est-ce qui vous frustrerait — que ce soit lent, ou que vous payiez pour de la puissance qui dort ? »</div>
-  <div class="disclaimer reveal" data-delay="1" style="margin-top:var(--sp-5)">Sources : Apple Newsroom (25 août 2026), fiches techniques Apple. Chiffres constructeur — document d'aide à la vente, non contractuel.</div>
-</section>
+</div>
 
 <footer>Guide puces Apple · popalazerk.com · Pour l'équipe Genius Bar</footer>
 </div>
@@ -464,6 +535,57 @@ const ioNum=new IntersectionObserver(entries=>{
   });
 },{threshold:.6});
 document.querySelectorAll('.num').forEach(el=>ioNum.observe(el));
+
+
+/* ---- Navigation par vues + menu overlay (module recommandation dissocie) ---- */
+function toggleMenu(force){
+  const ov=document.getElementById('menuOverlay'), bg=document.getElementById('burgerBtn');
+  const willOpen=force!==undefined?force:!ov.classList.contains('open');
+  ov.classList.toggle('open',willOpen);
+  bg.classList.toggle('open',willOpen);
+  bg.setAttribute('aria-expanded',willOpen);
+  ov.setAttribute('aria-hidden',!willOpen);
+  document.body.classList.toggle('menu-open',willOpen);
+}
+function openView(v){
+  if(v==='guide'){
+    history.pushState(null,'','#');
+    window.scrollTo(0,0);
+    showView('guide');
+    toggleMenu(false);
+    return;
+  }
+  location.hash='/'+v; /* declenche le routeur hashchange */
+}
+function showView(v){
+  document.querySelectorAll('.view').forEach(el=>el.classList.remove('active'));
+  const el=document.getElementById('view-'+v);
+  if(el)el.classList.add('active');
+  document.querySelectorAll('.menu-item').forEach(mi=>mi.classList.toggle('active',mi.dataset.view===v));
+  window.scrollTo(0,0);
+  /* re-declencher les reveals de la vue affichee */
+  el.querySelectorAll('.reveal').forEach(r=>r.classList.add('in'));
+}
+function route(){
+  const h=location.hash;
+  if(h.startsWith('#/')){
+    const v=h.slice(2);
+    if(['cmp','quiz','faq'].includes(v)){
+      showView(v);
+      document.getElementById('menuOverlay').classList.remove('open');
+      document.getElementById('burgerBtn').classList.remove('open');
+      document.body.classList.remove('menu-open');
+      return;
+    }
+  }
+  showView('guide');
+}
+window.addEventListener('hashchange',route);
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&document.getElementById('menuOverlay').classList.contains('open'))toggleMenu(false);
+});
+/* boot : si l URL porte #/quiz (lien partage en boutique), ouvrir directement le module */
+(function(){const h=location.hash;if(h.startsWith('#/')&&['cmp','quiz','faq'].includes(h.slice(2)))route();})();
 
 /* ---- Quiz (logique v1 conservée) ---- */
 const answers={1:null,2:null,3:null,4:null};
