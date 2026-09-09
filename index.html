@@ -173,6 +173,8 @@ footer{padding:var(--sp-5) 0;text-align:center;font-size:12px;color:var(--ink-fa
 .menu-overlay.open .menu-item:nth-child(2){transition-delay:100ms}
 .menu-overlay.open .menu-item:nth-child(3){transition-delay:150ms}
 .menu-overlay.open .menu-item:nth-child(4){transition-delay:200ms}
+.menu-overlay.open .menu-item:nth-child(5){transition-delay:250ms}
+.menu-overlay.open .menu-item:nth-child(6){transition-delay:300ms}
 .menu-item button{
   display:flex;align-items:baseline;gap:18px;width:100%;text-align:left;
   background:none;border:none;border-bottom:1px solid var(--hair-soft);
@@ -224,6 +226,8 @@ body.menu-open{overflow:hidden}
     <div class="menu-item" data-view="cmp"><button onclick="openView('cmp')"><span class="idx">02</span><span class="lbl">Le comparatif</span><span class="desc">M5 vs M6 · Ultra</span></button></div>
     <div class="menu-item" data-view="quiz"><button onclick="openView('quiz')"><span class="idx">03</span><span class="lbl">L'assistant</span><span class="desc">Recommandation en 4 questions</span></button></div>
     <div class="menu-item" data-view="faq"><button onclick="openView('faq')"><span class="idx">04</span><span class="lbl">La FAQ</span><span class="desc">Les vraies questions client</span></button></div>
+    <div class="menu-item" data-view="keynote"><button onclick="openView('keynote')"><span class="idx">05</span><span class="lbl">Le keynote</span><span class="desc">Annonces du 9 septembre</span></button></div>
+    <div class="menu-item" data-view="quizz"><button onclick="openView('quizz')"><span class="idx">06</span><span class="lbl">Le quiz</span><span class="desc">Teste ta mémoire</span></button></div>
   </nav>
   <div class="menu-foot">ESC pour fermer</div>
 </div>
@@ -468,6 +472,100 @@ body.menu-open{overflow:hidden}
 
 </div>
 
+<div class="view" id="view-keynote">
+
+<section>
+  <div class="sect-head reveal">
+    <div class="kicker">Keynote du 9 septembre 2026 — « Surprise and Shine »</div>
+    <h2>Les annonces, en direct d'Apple Park</h2>
+    <p>Première keynote de John Ternus comme CEO. 5 produits annoncés — et iOS 27 le 14 septembre.</p>
+  </div>
+
+  <div class="reveal" data-delay="1">
+    <h3>iPhone Duo — le « one more thing »</h3>
+    <p>Premier iPhone pliable, format passeport à plat. Interne 7,6″ (+50 % vs 18 Pro Max), externe 5,4″ (90 % de la surface de l'18 Pro), ProMotion / Always On, 3 000 nits. Touch ID sur le bouton latéral, Camera Control + mode Siri Camera, caméra FaceTime sous l'écran interne. A20 Pro, vapor chamber, double batterie : jusqu'à 31 h de vidéo. 48 Mpx Fusion, nanotexture anti-reflets, titane grade 5, Ceramic Shield 2 (3× plus résistant aux rayures), IP68. Star white / night sky. Précommandes 16 oct., en vente 23 oct. À partir de <b>1 999 $</b>. Apple Pencil USB-C « plus tard dans l'année ».</p>
+    <table class="cmp" data-delay="1">
+      <tr><th>Critère</th><th>iPhone Duo</th><th>iPhone Air (actuel)</th></tr>
+      <tr><td>Écrans</td><td class="win">7,6″ interne + 5,4″ externe</td><td>6,5″ unique</td></tr>
+      <tr><td>Puce</td><td class="win">A20 Pro + vapor chamber</td><td>A19 Pro</td></tr>
+      <tr><td>Vidéo</td><td class="win">31 h</td><td>27 h</td></tr>
+      <tr><td>Prix</td><td>1 999 $</td><td>999 $</td></tr>
+      <tr><td>Dispo</td><td>23 octobre</td><td>Sept. 2025</td></tr>
+    </table>
+    <div class="verdict" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(191,90,242,.10);border:1px solid rgba(191,90,242,.28)">💬 <b>En boutique :</b> produit 100 % nouveau — zéro historique de pannes, pièces absentes des flux les premières semaines. Touch ID latéral, nanotexture et double batterie = diagnostics inédits. Ne promettre aucun délai avant les guides officiels Apple.</div>
+  </div>
+
+  <div class="reveal" data-delay="1">
+    <h3>iPhone 18 Pro / 18 Pro Max</h3>
+    <p>A20 (« énorme gain ») ; première Apple : capteur 48 Mpx à <b>ouverture variable</b> + Pro Controls ; Dynamic Island 3 live activities ; Siri IA sur 300 000+ apps ; 36 h / 45 h de vidéo ; 2 To inédit sur Pro Max ; black / silver / burgundy / glacier. Précommandes 12 sept., dispo 18 sept. <b>Pas d'iPhone 18 standard</b> — reporté au printemps 2027. À noter : « Apple Reference Image » (authentification anti-IA), indisponible dans l'UE au lancement.</p>
+    <table class="cmp" data-delay="1">
+      <tr><th>Critère</th><th>18 Pro / Pro Max</th><th>17 Pro / Max</th></tr>
+      <tr><td>Puce</td><td class="win">A20</td><td>A19 Pro</td></tr>
+      <tr><td>Caméra</td><td class="win">48 Mpx à ouverture variable</td><td>Ouverture fixe</td></tr>
+      <tr><td>Vidéo</td><td class="win">36 h / 45 h</td><td>33 h / 39 h</td></tr>
+      <tr><td>Prix</td><td>1 199 $ / 1 299 $ (+100 $)</td><td>1 099 $ / 1 199 $</td></tr>
+    </table>
+    <div class="verdict" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(0,113,227,.10);border:1px solid rgba(0,113,227,.28)">💬 <b>En boutique :</b> 45 h = moins d'échanges batterie la première année ; ouverture variable = nouvelle mécanique photo au diagnostic. <b>France : prix EUR non communiqués à J+0 — tablez ~+100 € vs la grille 17 Pro (1 329 € / 1 479 €) et vérifiez apple.com/fr avant d'annoncer un tarif.</b></div>
+  </div>
+
+  <div class="reveal" data-delay="1">
+    <h3>AirPods 5 — l'ANC descend en gamme</h3>
+    <p>Première fois que la réduction de bruit arrive sur l'entrée de gamme : −50 % de bruit en plus, boîtiers plus durables. À <b>129 $</b> : 4 h ANC / 20 h boîtier. À <b>149 $</b> : volume sur la tige, 5 h ANC, boîtier sans fil. Dispo 18 sept.</p>
+    <table class="cmp" data-delay="1">
+      <tr><th>Critère</th><th>AirPods 5</th><th>AirPods 4</th></tr>
+      <tr><td>ANC</td><td class="win">Dès 129 $</td><td>Réservé au modèle 179 $</td></tr>
+      <tr><td>Réduction de bruit</td><td class="win">−50 % en plus</td><td>—</td></tr>
+      <tr><td>Autonomie</td><td>≈4 h ANC / 20 h boîtier</td><td>≈4 h / 20 h</td></tr>
+    </table>
+    <div class="verdict" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(191,90,242,.10);border:1px solid rgba(191,90,242,.28)">💬 <b>En boutique :</b> l'ANC en entrée de gamme réduit l'upsell vers AirPods Pro. Réparation = remplacement simple ; garantie légale 2 ans (vendeur) inchangée.</div>
+  </div>
+
+  <div class="reveal" data-delay="1">
+    <h3>Apple Watch Series 12 — capteur + IA</h3>
+    <p>Fréquence cardiaque mesurée toutes les <b>5 secondes</b> (LED vertes plus grandes), VFC jusqu'à toutes les 5 min. Siri Recap (notes de conversations interrogeables) et Audio Intelligence (détection on-device sirène / sonnette). App Santé repensée avec onglet « Longevity ». 24 h d'autonomie. <b>399 $</b> (céramique 899 $). Dispo 18 sept.</p>
+    <table class="cmp" data-delay="1">
+      <tr><th>Critère</th><th>Series 12</th><th>Series 11</th></tr>
+      <tr><td>Capteur FC</td><td class="win">Toutes les 5 s</td><td>Standard</td></tr>
+      <tr><td>Siri Recap + Audio IA</td><td class="win">Oui</td><td>Non</td></tr>
+      <tr><td>Autonomie / prix</td><td>24 h / 399 $</td><td>24 h / 399 $</td></tr>
+    </table>
+    <div class="verdict" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(0,113,227,.10);border:1px solid rgba(0,113,227,.28)">💬 <b>En boutique :</b> même autonomie et même prix que la S11 — le saut est capteur + IA. Questions vie privée attendues au comptoir (où vit l'audio, comment désactiver).</div>
+  </div>
+
+  <div class="reveal" data-delay="1">
+    <h3>Apple Watch Ultra 4 — deux jours</h3>
+    <p>Siri Recap + Audio Intelligence ; autonomie « plus de deux jours », record Apple. <b>799 $</b>, prix stable. Dispo 18 sept.</p>
+    <div class="verdict" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(191,90,242,.10);border:1px solid rgba(191,90,242,.28)">💬 <b>En boutique :</b> nouveautés surtout logicielles — pensez watchOS au comptoir ; autonomie 2 jours pour la montre d'aventure.</div>
+  </div>
+
+  <div class="reveal" data-delay="1">
+    <h3>iOS 27 — le 14 septembre</h3>
+    <p>Siri AI en bêta (anglais), opacité Liquid Glass réglable, nouvelles icônes, widgets extra-larges. Une mise à jour massive <b>4 jours avant la mise en vente des iPhone</b> : à anticiper au comptoir.</p>
+  </div>
+
+  <p class="reveal" data-delay="1" style="font-size:12px;color:var(--ink-faint)">Sources : Apple Newsroom (communiqué iPhone Duo), The Verge, Reuters, Bloomberg — 9 septembre 2026.</p>
+</section>
+
+</div>
+
+<div class="view" id="view-quizz">
+
+<section>
+  <div class="sect-head reveal">
+    <div class="kicker">Quiz keynote</div>
+    <h2>Suivez-vous les annonces ?</h2>
+    <p>6 questions sur le keynote du 9 septembre 2026.</p>
+  </div>
+  <div class="quizwrap">
+    <div class="reveal" id="kqBox"></div>
+    <div style="align-self:start">
+      <div class="result" id="kqResult" style="margin-top:var(--sp-3)"></div>
+    </div>
+  </div>
+</section>
+
+</div>
+
 <footer>Guide puces Apple · popalazerk.com · Pour l'équipe Genius Bar</footer>
 </div>
 
@@ -570,7 +668,7 @@ function route(){
   const h=location.hash;
   if(h.startsWith('#/')){
     const v=h.slice(2);
-    if(['cmp','quiz','faq'].includes(v)){
+    if(['cmp','quiz','faq','keynote','quizz'].includes(v)){
       showView(v);
       document.getElementById('menuOverlay').classList.remove('open');
       document.getElementById('burgerBtn').classList.remove('open');
@@ -585,7 +683,49 @@ document.addEventListener('keydown',e=>{
   if(e.key==='Escape'&&document.getElementById('menuOverlay').classList.contains('open'))toggleMenu(false);
 });
 /* boot : si l URL porte #/quiz (lien partage en boutique), ouvrir directement le module */
-(function(){const h=location.hash;if(h.startsWith('#/')&&['cmp','quiz','faq'].includes(h.slice(2)))route();})();
+(function(){const h=location.hash;if(h.startsWith('#/')&&['cmp','quiz','faq','keynote','quizz'].includes(h.slice(2)))route();})();
+/* ---- Quiz keynote (mecanisme propre, independant du quiz assistant) ---- */
+const KQ=[
+ {q:"Le « one more thing » du keynote ?",opts:["Le premier iPhone pliable","Un Mac pliable","Des AirPods Pro 3","Une Apple TV 4K"],exp:"L\'iPhone Duo — format passeport, 1 999 $, dispo 23 octobre."},
+ {q:"Quelle puce équipe l\'iPhone Duo ?",opts:["A20 Pro","A19 Pro","M6","C2"],exp:"Le C2 est le modem cellulaire maison, pas la puce principale."},
+ {q:"Première caméra de l\'iPhone 18 Pro ?",opts:["48 Mpx à ouverture variable","Zoom périscope 10×","Capteur 1 pouce","Double caméra frontale"],exp:"« La plus grande amélioration photo depuis des années »."},
+ {q:"Autonomie vidéo de l\'iPhone 18 Pro Max ?",opts:["45 h","36 h","31 h","39 h"],exp:"36 h = 18 Pro · 31 h = Duo · 39 h = 17 Pro Max (2025)."},
+ {q:"La grande première des AirPods 5 à 129 $ ?",opts:["L\'ANC sur l\'entrée de gamme","La charge sans fil sur les deux","10 h sans boîtier","La compatibilité Apple Pencil"],exp:"Sur les AirPods 4, l\'ANC était réservé au modèle à 179 $."},
+ {q:"Annoncé par la rumeur mais absent du keynote ?",opts:["L\'iPhone 18 standard","L\'iPhone 18 Pro Max","L\'Apple Watch Ultra 4","Les AirPods 5"],exp:"Reporté au printemps 2027 — un septembre 100 % Pro."}
+];
+let kqScore=0,kqDone=0;
+function kqShuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function kqRender(){
+  kqScore=0;kqDone=0;
+  document.getElementById('kqResult').innerHTML='';
+  const box=document.getElementById('kqBox');
+  box.innerHTML=KQ.map((it,qi)=>{
+    const opts=kqShuffle(it.opts.slice());
+    return '<div class="q"><h3><span class="n">'+(qi+1)+'</span>'+it.q+'</h3><div class="opts" data-kq="'+qi+'">'+
+      opts.map(o=>'<button class="opt" data-ok="'+(o===it.opts[0]?1:0)+'" onclick="kqPick(this)">'+o+'</button>').join('')+'</div></div>';
+  }).join('');
+}
+function kqPick(btn){
+  const wrap=btn.parentNode;
+  if(wrap.dataset.done)return;
+  wrap.dataset.done='1';
+  if(btn.dataset.ok==='1')kqScore++;
+  wrap.querySelectorAll('.opt').forEach(o=>{
+    o.disabled=true;
+    if(o.dataset.ok==='1')o.style.borderColor='#30D158';
+    else if(o===btn)o.style.borderColor='#FF4545';
+    else o.style.opacity=.45;
+  });
+  kqDone++;
+  if(kqDone===KQ.length)kqCompute();
+}
+function kqCompute(){
+  const r=document.getElementById('kqResult');
+  const msg=kqScore===KQ.length?'Sans faute. Prêt pour le comptoir.':kqScore>=4?'Solide — la vue Keynote comblera les détails.':'Le keynote vous a échappé — la vue Keynote est là pour ça.';
+  r.innerHTML='<div style="font-family:var(--font-d);font-size:34px;font-weight:600">'+kqScore+' / '+KQ.length+'</div><p style="color:var(--ink-dim);margin:6px 0 12px">'+msg+'</p><button class="opt" style="width:100%;text-align:center;font-weight:600;border-color:var(--blue)" onclick="kqRender()">Recommencer</button>';
+}
+document.addEventListener('DOMContentLoaded',kqRender);
+
 
 /* ---- Quiz (logique v1 conservée) ---- */
 const answers={1:null,2:null,3:null,4:null};
