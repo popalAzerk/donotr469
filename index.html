@@ -413,7 +413,7 @@ body.menu-open{overflow:hidden}
         <div class="ctag">Fusion · Quad-die</div>
         <h3>UltraFusion</h3>
         <p>Plusieurs puces soudées qui travaillent comme une seule. Le M5 Ultra, c'est 4 puces M5 Max qui ne font qu'un — le logiciel ne voit qu'une seule machine.</p>
-        <div class="cfoot">UltraFusion 2 : 4,4 To/s entre puces</div>
+        <div class="cfoot">M5 Ultra : 1,2 To/s — Neural Engine 32 cœurs</div>
       </div>
     </div>
   </div>
@@ -642,7 +642,7 @@ body.menu-open{overflow:hidden}
   <div class="reveal">
   <details><summary>« Le M6, c'est deux fois mieux que le M5 ? »</summary><div class="a">Non — en usage courant, environ 15 à 30 % plus rapide. Le vrai saut du M6 : l'IA (×2) et l'efficacité (2 nm). Le client le sentira sur la batterie et Siri, pas sur Mail.</div></details>
   <details><summary>« C'est quoi, le Neural Engine, concrètement ? »</summary><div class="a">Le spécialiste IA de la puce. C'est ce qui fait que Siri répond vite, que les photos se trient toutes seules, que la dictée marche sans internet.</div></details>
-  <details><summary>« L'Ultra, ça vaut le coup pour moi ? »</summary><div class="a">Seulement pour du montage 8K, de la 3D ou de l'IA sur la machine. Pour du Excel + Safari + photos, c'est payer pour un couloir vide. Recommander M6 ou M5 Max.</div></details>
+  <details><summary>« L'Ultra, ça vaut le coup pour moi ? »</summary><div class="a">Seulement pour du montage 8K, de la 3D ou de l'IA sur la machine. Pour du Excel + Safari + photos, c'est payer pour un couloir vide. Recommander M5 Pro ou M5 Max.</div></details>
   <details><summary>« Pourquoi 512 Go de mémoire dans un Mac Studio ? »</summary><div class="a">Pour faire tenir un cerveau IA entier dans la machine. Un gros modèle d'IA, c'est un dictionnaire géant : s'il tient sur la table (la mémoire), on consulte tout de suite.</div></details>
   <details><summary>« Ma puce M1 est-elle dépassée ? »</summary><div class="a">Non. Pour du bureautique et du web, un M1 reste excellent en 2026. On change de puce quand un besoin précis n'est plus couvert : autonomie, IA, gros montages — pas par principe.</div></details>
   </div>
@@ -759,11 +759,11 @@ body.menu-open{overflow:hidden}
     <h3>Deux jours. Un record Apple.</h3>
     <p class="kn-hook">Siri Recap + Audio Intelligence, autonomie « plus de deux jours » — un record pour la montre d'aventure.</p>
     <div class="kn-chips">
-      <div class="chip"><b>&gt;48 h</b><span>autonomie <span class="fn-ref">3</span></span></div>
+      <div class="chip"><b>50 h</b><span>autonomie⁴ (45 h exercice ultraprolongé¹)</span></div>
       <div class="chip"><b>899 €</b><span>prix stable</span></div>
       <div class="chip"><b>18 sept.</b><span>disponibilité</span></div>
     </div>
-    <div class="verdict" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(191,90,242,.10);border:1px solid rgba(191,90,242,.28)">💬 <b>En store :</b> nouveautés surtout logicielles — pensez watchOS au comptoir ; autonomie 2 jours = l'argument d'aventure. Prix France TTC : 899 € (US 799 $ hors taxes).</div>
+    <div class="verdict" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(191,90,242,.10);border:1px solid rgba(191,90,242,.28)">💬 <b>En store :</b> nouveautés surtout logicielles — pensez watchOS au comptoir ; autonomie 50 h = l'argument d'aventure. Prix France TTC : 899 € (US 799 $ hors taxes).</div>
   </article>
 
   <article class="kn-card reveal" id="kn-ios" data-delay="1">
@@ -869,8 +869,8 @@ const CHIPFAM={
   {n:'M5',gen:'2025 · MacBook Air/Pro, iMac, iPad Pro',rows:[['CPU','10 cœurs'],['GPU','10 cœurs + Neural Accelerators'],['Neural Engine','16 cœurs'],['Bande passante','153 Go/s'],['Gravure','3 nm'],['Mémoire max','32 Go']],price:'MacBook Air 13″ M5 à partir de 1 399 €'},
   {n:'M6',gen:'2026 · Mac mini, iMac, iPad Pro',rows:[['CPU','12 cœurs (2 super + 4 perf + 6 eff)'],['GPU','12 cœurs + Neural Accelerators'],['Neural Engine','2× 16 cœurs'],['Bande passante','jusqu’à 170 Go/s'],['Gravure','2 nm — 1ʳᵉ Apple']],price:'Mac mini M6 — voir prix en store (page Apple)'},
   {n:'M5 Pro / M5 Max',gen:'2025 · MacBook Pro',rows:[['CPU','jusqu’à 18 cœurs'],['GPU','jusqu’à 20 / 40 cœurs'],['Bande passante','307 / 614 Go/s'],['Neural Engine','16 cœurs'],['Mémoire max','64 / 128 Go']],price:'MacBook Pro 14″ : M5 2 199 € · M5 Pro 2 899 € · M5 Max 4 799 €'},
-  {n:'M6 Pro / M6 Max',gen:'2026 · MacBook Pro (annoncés)',rows:[['CPU','— à confirmer en store'],['GPU','IA ×2 vs M5 Pro/Max (annonce)'],['Gravure','2 nm']],price:'Non encore au configurateur Apple FR — chiffrer au moment de la dispo'},
-  {n:'M3 Ultra',gen:'2025 · Mac Studio',rows:[['CPU','jusqu’à 32 cœurs (24 perf)'],['GPU','jusqu’à 80 cœurs'],['Neural Engine','16 cœurs'],['Bande passante','jusqu’à 819 Go/s'],['Mémoire max','jusqu’à 512 Go']],price:'Config 2025 — se référer au store pour le prix actuel'},
+
+  {n:'M3 Ultra',gen:'2025 · Mac Studio',rows:[['CPU','jusqu’à 32 cœurs (24 perf + 8 eff)'],['GPU','jusqu’à 80 cœurs'],['Neural Engine','32 cœurs'],['Bande passante','819 Go/s'],['Mémoire max','512 Go']],price:'Config 2025 — se référer au store pour le prix actuel'},
   {n:'M5 Ultra',gen:'2026 · Mac Studio',rows:[['CPU','jusqu’à 36 cœurs (12 super + 24 perf)'],['GPU','jusqu’à 80 cœurs'],['Neural Engine','32 cœurs'],['Bande passante','1,2 To/s'],['Mémoire max','512 Go']],price:'M5 Ultra 6 599 € (30 c/64 c) · 8 029 € (36 c/80 c)'}
  ]},
  iphone:{cards:[
@@ -881,7 +881,7 @@ const CHIPFAM={
  watch:{cards:[
   {n:'S11 SiP',gen:'2025 · Watch Series 11 / SE 3',rows:[['Capteur FC','standard'],['Siri IA','Non'],['Autonomie','24 h¹']],price:'Watch SE 3 à partir de 249 €'},
   {n:'S12 SiP',gen:'2026 · Watch Series 12',rows:[['Capteur FC','toutes les 5 s²'],['Siri Recap / Audio IA','Oui'],['Autonomie','24 h¹ stable']],price:'Watch S12 449 € (céramique 1 049 €)'},
-  {n:'Ultra 4',gen:'2026 · Watch Ultra 4',rows:[['Autonomie','> 2 jours¹ (record)'],['Tests terrain','course sans iPhone³'],['Siri IA','Oui'],['Boîtier','titanium']],price:'Watch Ultra 4 899 €'}
+  {n:'Ultra 4',gen:'2026 · Watch Ultra 4',rows:[['Autonomie','jusqu’à 50 h⁴ (45 h exercice ultraprolongé¹)'],['Tests terrain','course sans iPhone³'],['Siri IA','Oui'],['Boîtier','titanium']],price:'Watch Ultra 4 899 €'}
  ]}
 };
 function renderChipFam(id){
@@ -975,18 +975,18 @@ document.addEventListener('keydown',e=>{
 /* ---- Comparateur interactif : dataset + moteur ---- */
 const CMP2={
  fams:[
-  {id:'mac',lbl:'Puces Mac',prods:['m5','m6','m5max','m6max','m3ultra','m5ultra']},
+  {id:'mac',lbl:'Puces Mac',prods:['m5','m6','m5pro','m5max','m3ultra','m5ultra']},
   {id:'iphone',lbl:'iPhone',prods:['ip17pro','ip17promax','ip18pro','ip18promax','ipduo','ipair']},
   {id:'watch',lbl:'Apple Watch',prods:['s11','s12','u3','u4']},
-  {id:'pods',lbl:'AirPods',prods:['ap4','ap4anc','ap5']}
+  {id:'pods',lbl:'AirPods',prods:['app3','ap5']}
  ],
  P:{
   m5:{n:'M5',s:'2025 · 3 nm',rows:[['CPU','10 cœurs (4 super + 6 efficience)'],['GPU','8 ou 10 cœurs'],['Neural Engine','16 cœurs'],['Couloir mémoire','153 Go/s'],['Gravure','3 nm'],['Mémoire max','32 Go'],['Machines','MacBook Pro, iPad Pro, Air, Vision Pro']]},
   m6:{n:'M6',s:'2026 · 1ᵉʳ 2 nm Apple',rows:[['CPU','12 cœurs (2 super + 4 perf + 6 efficience)'],['GPU','12 cœurs + accélérateur IA par cœur'],['Neural Engine','Double 16 cœurs — IA ×2'],['Couloir mémoire','170 Go/s'],['Gravure','2 nm — 1ʳᵉ puce Apple'],['Mémoire max','32 Go'],['Machines','Mac mini']]},
-  m5max:{n:'M5 Max',s:'2025 · haut de gamme',rows:[['CPU','16 cœurs'],['GPU','40 cœurs'],['Couloir mémoire','546 Go/s'],['Machines','MacBook Pro 16", Mac Studio']]},
-  m6max:{n:'M6 Max',s:'2026 · haut de gamme',rows:[['CPU','18 cœurs'],['GPU','44 cœurs + accélérateurs IA'],['Couloir mémoire','600 Go/s'],['Machines','MacBook Pro 16", Mac Studio']]},
-  m3ultra:{n:'M3 Ultra',s:'2025 · 2 dies',rows:[['Architecture','2 dies via UltraFusion'],['CPU','28/32 cœurs'],['GPU','60/80 cœurs'],['Couloir mémoire','819 Go/s'],['Calcul IA (GPU)','—']]},
-  m5ultra:{n:'M5 Ultra',s:'2026 · 1ᵉʳ quad-die',rows:[['Architecture','4 dies (2× M5 Max) — 1ᵉʳ quad-die Apple'],['CPU','30/36 cœurs'],['GPU','64/80 cœurs + accélérateur IA'],['Couloir mémoire','1,2 To/s (+50 %)'],['UltraFusion','UltraFusion 2 : 4,4 To/s, densité ×6'],['Calcul IA (GPU)','×4,5 vs M3 Ultra']]},
+  m5max:{n:'M5 Max',s:'2025 · haut de gamme',rows:[['CPU','18 cœurs'],['GPU','32 cœurs (460 Go/s) ou 40 cœurs (614 Go/s) + Neural Accelerators'],['Neural Engine','16 cœurs'],['Bande passante','460 / 614 Go/s'],['Machines','MacBook Pro 14″ et 16″']]},
+  m5pro:{n:'M5 Pro',s:'2025 · MacBook Pro',rows:[['CPU','jusqu’à 18 cœurs'],['GPU','jusqu’à 20 cœurs + Neural Accelerators'],['Neural Engine','16 cœurs'],['Bande passante','307 Go/s'],['Machines','MacBook Pro 14″ et 16″']]},
+  m3ultra:{n:'M3 Ultra',s:'2025 · 2 dies',rows:[['Architecture','2 dies via UltraFusion'],['CPU','jusqu’à 32 cœurs (24 perf + 8 eff)'],['GPU','jusqu’à 80 cœurs'],['Neural Engine','32 cœurs'],['Bande passante','819 Go/s']]},
+  m5ultra:{n:'M5 Ultra',s:'2026 · Mac Studio',rows:[['CPU','jusqu’à 36 cœurs (12 super + 24 perf)'],['GPU','jusqu’à 80 cœurs + Neural Accelerators'],['Neural Engine','32 cœurs'],['Bande passante','1,2 To/s'],['Machines','Mac Studio']]},
   ip17pro:{n:'iPhone 17 Pro',s:'2025 · 1 329 €',rows:[['Puce','A19 Pro'],['Vidéo','31 h¹'],['Caméra','48 Mpx ouverture fixe'],['Prix','1 329 €']]},
   ip17promax:{n:'iPhone 17 Pro Max',s:'2025 · 1 479 €',rows:[['Puce','A19 Pro'],['Vidéo','37 h¹'],['Caméra','48 Mpx ouverture fixe'],['Prix','1 479 €']]},
   ip18pro:{n:'iPhone 18 Pro',s:'2026 · 18 sept. · 1 479 €',rows:[['Puce','A20 Pro — GPU 7 cœurs'],['Vidéo','34 h¹ (23 h usage)'],['Caméra','48 Mpx à ouverture variable (1ʳᵉ Apple)'],['Prix','1 479 € (+150 €)']]},
@@ -996,10 +996,9 @@ const CMP2={
   s11:{n:'Watch Series 11',s:'2025 · 449 €',rows:[['Capteur FC','Standard'],['Siri Recap / Audio IA','Non'],['Autonomie','24 h¹'],['Prix','449 €']]},
   s12:{n:'Watch Series 12',s:'2026 · 18 sept.',rows:[['Capteur FC','Toutes les 5 s²'],['Siri Recap / Audio IA','Oui'],['Autonomie','24 h¹ (stable)'],['Prix','449 € (céramique 1 049 €)'],['Compatibilité','iPhone 11 ou + · iOS 27']]},
   u3:{n:'Watch Ultra 3',s:'2025 · 899 €',rows:[['Autonomie','42 h¹'],['Siri Recap / Audio IA','Non'],['Prix','899 €']]},
-  u4:{n:'Watch Ultra 4',s:'2026 · 18 sept.',rows:[['Autonomie','Plus de 2 jours¹ (record Apple)'],['Siri Recap / Audio IA','Oui'],['Prix','899 € (stable)'],['Compatibilité','iPhone 11 ou + · iOS 27']]},
-  ap4:{n:'AirPods 4',s:'2025 · 149 €',rows:[['ANC','Sans'],['Autonomie','≈4 h / 20 h boîtier'],['Prix','149 €']]},
-  ap4anc:{n:'AirPods 4 ANC',s:'2025 · 229 €',rows:[['ANC','Oui'],['Autonomie','≈4 h / 20 h boîtier'],['Prix','229 €']]},
-  ap5:{n:'AirPods 5',s:'2026 · 18 sept. · 149 €',rows:[['ANC','Oui, dès 149 €⁴'],['Réduction','−50 % en plus⁴'],['Autonomie','≈4 h ANC / 20 h boîtier'],['Prix','149 € · 169 € (sans fil)']]}
+  u4:{n:'Watch Ultra 4',s:'2026 · 18 sept.',rows:[['Autonomie','Jusqu’à 50 h⁴ (record Apple)'],['Siri Recap / Audio IA','Oui'],['Prix','899 € (stable)'],['Compatibilité','iPhone 11 ou + · iOS 27']]},
+  app3:{n:'AirPods Pro 3',s:'2025 · 249 €',rows:[['ANC','Meilleure ANC intra-auriculaire au monde¹'],['Capteur FC','Oui²'],['Autonomie','Jusqu’à 8 h¹³'],['Prix','249 €']]},
+    ap5:{n:'AirPods 5',s:'2026 · 18 sept. · 149 €',rows:[['ANC','Oui, sur les deux modèles⁴'],['ANC vs AirPods 4 ANC','jusqu’à 1,5× plus performante⁴'],['Autonomie','≈4 h ANC / 20 h boîtier'],['Prix','149 € · 169 € (Boîtier de charge sans fil)']]}
  },
  fam:'mac', a:null, b:null,
  init(){
@@ -1144,7 +1143,7 @@ function computeWQuiz(){
     s12:{t:'⌚ Apple Watch Series 12 — 449 €',bt:'Le quotidien, la santé, le style',
       w:'Capteur FC toutes les 5 s² (le suivi cardio le plus fin, validé par l\'étude Apple juil.-août 2026²), Siri Recap + Audio IA, 24 h¹. Céramique disponible à 1 049 € si le client veut monter en gamme sans passer à l\'Ultra. Nécessite iPhone 11 ou + avec iOS 27.'},
     u4:{t:'⌚ Apple Watch Ultra 4 — 899 €',bt:'L\'aventure et l\'endurance',
-      w:'Plus de 2 jours d\'autonomie¹ (record Apple, tests terrain course sans iPhone³), boîtier titanium, écran le plus solide, Siri Recap + Audio IA. Le même prix que l\'an dernier (899 €, stable). Pour expéditions, sport extrême et client qui oublie de recharger. Nécessite iPhone 11 ou + avec iOS 27.'}
+      w:'Jusqu’à 50 h d\'autonomie⁴ (record Apple, tests terrain course sans iPhone³), boîtier titanium, écran le plus solide, Siri Recap + Audio IA. Le même prix que l\'an dernier (899 €, stable). Pour expéditions, sport extrême et client qui oublie de recharger. Nécessite iPhone 11 ou + avec iOS 27.'}
   }[best];
   r.className='result show';
   r.style.background='rgba(0,113,227,.12)';r.style.border='1px solid rgba(0,113,227,.32)';
@@ -1236,7 +1235,7 @@ function computeQuiz(){
     m5max:{t:'🍎 M5 Pro / M5 Max — MacBook Pro',bc:'rgba(0,113,227,.12)',bb:'rgba(0,113,227,.32)',bt:'Usage pro créatif',
         w:'Montage, code, musique, photo lourde : le M5 Pro/Max apporte les cœurs et le couloir mémoire nécessaires sans passer à la workstation. 64-128 Go de mémoire unifiée possible.'},
     m5ultra:{t:'🍎 M5 Ultra — Mac Studio',bc:'rgba(191,90,242,.12)',bb:'rgba(191,90,242,.28)',bt:'Usage workstation',
-        w:'8K, 3D, IA locale, gros calculs : c\'est le terrain du quad-die. 96 à 512 Go de mémoire unifiée, 1,2 To/s, IA ×4,5. Pour ce client, la puissance dormante est un investissement.'}
+        w:'8K, 3D, IA locale, gros calculs : c\'est le terrain du Mac Studio M5 Ultra. 96 à 512 Go de mémoire unifiée, 1,2 To/s de bande passante. Pour ce client, la puissance dormante est un investissement.'}
   }[best];
   r.className='result show';
   r.style.background=rec.bc;r.style.border='1px solid '+rec.bb;
