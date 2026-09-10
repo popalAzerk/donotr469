@@ -231,6 +231,17 @@ body.menu-open{overflow:hidden}
 .kn-notes-list .fn-n{font-family:var(--font-m);font-size:10px;color:var(--ink-faint);flex-shrink:0;letter-spacing:.08em;padding-top:2px}
 @media(max-width:640px){.kn-notes-list li{font-size:11px}}
 
+/* --- GIFs Remotion (métaphores sens) --- */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,34vw);gap:32px;align-items:center}
+.hero .kicker,.hero h1,.hero .lede{grid-column:1}
+.hero .hero-gif{grid-column:2;grid-row:1 / span 3}
+.hero-gif{width:100%;max-width:480px;opacity:.85;border-radius:20px;pointer-events:none;align-self:center}
+.stat-gif{width:100%;max-width:560px;margin:20px auto 0;display:block;border-radius:14px;opacity:.9}
+.as-gif{width:100%;max-width:460px;margin:18px auto 0;display:block;border-radius:14px;opacity:.9}
+.cmp2-gif{width:100%;max-width:520px;margin:14px auto 0;display:block;border-radius:14px;opacity:.85}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero-gif{width:88%;margin:14px auto 0;display:block}}
+.hero .scrollcue,.hero .hud{grid-column:1/-1}
+
 /* --- Comparateur interactif (bloc-notes de comptoir) --- */
 .cmp2-fam{display:flex;gap:10px;flex-wrap:wrap;margin:var(--sp-3) 0 var(--sp-4)}
 .cmp2-fam button{font-size:13px;border:1px solid var(--hair);background:none;border-radius:980px;padding:10px 18px;color:var(--ink-dim);cursor:pointer;transition:all var(--dur-1) var(--ease)}
@@ -303,7 +314,7 @@ body.menu-open{overflow:hidden}
   <div class="kicker reveal">Genius Bar · Apple Silicon 2026</div>
   <h1 class="reveal" data-delay="1">Les puces Apple, expliquées simplement.</h1>
   <p class="lede reveal" data-delay="2">M5, M6, Ultra, Neural Engine — le jargon traduit en langage client. Faites glisser, regardez, conseillez.</p>
-  
+  <img class="hero-gif" src="videos/intro-titre.gif" alt="" loading="eager">
   <div class="scrollcue reveal" data-delay="3">Défiler</div>
   <div class="hud hud-tl">Puces Apple</div>
   <div class="hud hud-br">M5 · M6 · Ultra — Édition 2026</div>
@@ -406,6 +417,7 @@ body.menu-open{overflow:hidden}
   </div>
   <div class="stats">
     <div class="stat reveal"><div class="num" data-count="2"><span>0</span><span class="u">nm</span></div><div class="lbl">gravure du M6 — première puce Apple en 2 nm</div></div>
+  <img class="stat-gif" src="videos/bandwidth.gif" alt="153 Go/s vs 1,2 To/s" loading="lazy">
   
   
     <div class="stat reveal" data-delay="1"><div class="num" data-count="2" data-decimal="1"><span>0,0</span><span class="u">To/s</span></div><div class="lbl">de bande passante sur M5 Ultra (×1,5 vs M3 Ultra)</div></div>
@@ -461,6 +473,7 @@ body.menu-open{overflow:hidden}
     <div class="kicker">Assistant de recommandation</div>
     <h2>Quelle puce pour quel usage ?</h2>
     <p>4 questions posées au client, une recommandation en sortie.</p>
+  <img class="as-gif" src="videos/unified-memory.gif" alt="Mémoire unifiée" loading="lazy">
   </div>
   
   <div class="quizwrap">
@@ -502,6 +515,60 @@ body.menu-open{overflow:hidden}
     </div>
     <div style="align-self:start">
       <div class="result" id="quizResult" style="margin-top:var(--sp-3)"></div>
+    </div>
+  </div>
+
+  <div class="sect-head reveal" style="margin-top:var(--sp-6)">
+    <div class="kicker">Assistant iPhone</div>
+    <h2>Quel iPhone pour quel client&nbsp;?</h2>
+    <p>5 questions — la recommandation cite le modèle, le prix et l'argument comptoir.</p>
+  </div>
+  <div class="quizwrap">
+    <div class="reveal">
+      <div class="q">
+        <h3><span class="n">1</span>Usage principal de l'iPhone du client&nbsp;?</h3>
+        <div class="opts" data-iq="1">
+          <button class="opt" data-v="0">Messages, photos, réseaux — l'essentiel</button>
+          <button class="opt" data-v="1">Photos sérieuses, jeux, montages courts</button>
+          <button class="opt" data-v="2">Pro photo/vidéo, tout faire, garder des années</button>
+          <button class="opt" data-v="3">Écran XXL — films, lecture, deux apps côte à côte</button>
+        </div>
+      </div>
+      <div class="q">
+        <h3><span class="n">2</span>Format préféré&nbsp;?</h3>
+        <div class="opts" data-iq="2">
+          <button class="opt" data-v="0">Léger et fin avant tout</button>
+          <button class="opt" data-v="1">Standard</button>
+          <button class="opt" data-v="2">Grand écran, sans pliable</button>
+          <button class="opt" data-v="3">Pliable — le facteur « wow »</button>
+        </div>
+      </div>
+      <div class="q">
+        <h3><span class="n">3</span>Autonomie attendue&nbsp;?</h3>
+        <div class="opts" data-iq="3">
+          <button class="opt" data-v="0">La plus longue possible</button>
+          <button class="opt" data-v="1">Une journée suffit</button>
+        </div>
+      </div>
+      <div class="q">
+        <h3><span class="n">4</span>Photo&nbsp;?</h3>
+        <div class="opts" data-iq="4">
+          <button class="opt" data-v="0">Basique</button>
+          <button class="opt" data-v="1">Zoom et portrait pro — contrôle de l'ouverture</button>
+        </div>
+      </div>
+      <div class="q">
+        <h3><span class="n">5</span>Budget&nbsp;?</h3>
+        <div class="opts" data-iq="5">
+          <button class="opt" data-v="0">Jusqu'à 1 200 €</button>
+          <button class="opt" data-v="1">1 500 € et plus</button>
+          <button class="opt" data-v="2">Le prix n'est pas le frein principal</button>
+        </div>
+      </div>
+      <button class="opt" style="width:100%;text-align:center;font-weight:600;border-color:var(--blue);margin-top:var(--sp-3)" onclick="computeIPQuiz()">Voir la recommandation iPhone</button>
+    </div>
+    <div style="align-self:start">
+      <div class="result" id="ipQuizResult" style="margin-top:var(--sp-3)"></div>
     </div>
   </div>
 </section>
@@ -885,7 +952,7 @@ const CMP2={
      trs+='<tr><td>'+k+'</td><td class="'+ca+'">'+va+'</td><td class="'+cb+'">'+vb+'</td></tr>';
    });
    out.innerHTML='<div class="cmp2-out"><table><thead><tr><th>Critère</th><th>'+pa.n+'</th><th>'+pb.n+'</th></tr></thead><tbody>'+trs+'</tbody></table>'+
-     '<div class="cmp2-note">En vert : l\'avantage. Notes ¹⁴ en bas de la vue Keynote (conditions officielles). L\'autonomie varie selon l\'utilisation.</div>';
+     '<img class="cmp2-gif" src="videos/nm-shrink.gif" alt="3 nm vers 2 nm" loading="lazy"><div class="cmp2-note">En vert : l\'avantage. Notes ¹⁴ en bas de la vue Keynote (conditions officielles). L\'autonomie varie selon l\'utilisation.</div>';
  }
 };
 document.addEventListener('DOMContentLoaded',function(){CMP2.init();});
@@ -945,6 +1012,63 @@ document.querySelectorAll('.opts').forEach(g=>{
     });
   });
 });
+
+const ipAnswers={};
+document.querySelectorAll('[data-iq]').forEach(box=>{
+  box.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{
+    box.querySelectorAll('.opt').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    ipAnswers[box.dataset.iq]=parseInt(b.dataset.v);
+  }));
+});
+function computeIPQuiz(){
+  const r=document.getElementById('ipQuizResult');
+  if(Object.keys(ipAnswers).length<5){
+    r.className='result show';
+    r.style.background='rgba(255,159,10,.10)';r.style.border='1px solid rgba(255,159,10,.3)';
+    r.innerHTML='<h3>Répondez aux 5 questions</h3><div class="why">Une recommandation, un prix, un argument.</div>';
+    return;
+  }
+  const [usage,format,auto,photo,budget]=Object.keys(ipAnswers).sort().map(k=>ipAnswers[k]);
+  const score={ipair:0,ip17pro:0,ip17promax:0,ip18pro:0,ip18promax:0,ipduo:0};
+  // Usage
+  if(usage===0){score.ipair+=2;score.ip17pro+=2;}
+  if(usage===1){score.ip17pro+=2;score.ip18pro+=2;score.ip17promax+=1;}
+  if(usage===2){score.ip18pro+=3;score.ip18promax+=3;}
+  if(usage===3){score.ipduo+=4;score.ip18promax+=2;}
+  // Format
+  if(format===0){score.ipair+=3;}
+  if(format===1){score.ip17pro+=1;score.ip18pro+=1;}
+  if(format===2){score.ip17promax+=2;score.ip18promax+=2;}
+  if(format===3){score.ipduo+=4;}
+  // Autonomie
+  if(auto===0){score.ip18promax+=2;score.ipduo+=1;score.ip17promax+=1;}
+  // Photo
+  if(photo===1){score.ip18pro+=2;score.ip18promax+=2;}
+  // Budget
+  if(budget===0){score.ipair+=2;score.ip17pro+=2;}
+  if(budget===1){score.ip18pro+=1;score.ip18promax+=1;}
+  if(budget===2){score.ipduo+=2;score.ip18promax+=1;}
+  const best=Object.entries(score).sort((a,b)=>b[1]-a[1])[0][0];
+  const rec={
+    ipair:{t:'📱 iPhone Air — 1 159 €',bt:'L\'essentiel, ultra-fin',
+      w:'Le plus fin et léger des iPhone, A19 Pro, 27 h. Pour un client qui veut la qualité Apple sans poids ni prix des Pro. Basique en photo : le dire honnêtement.'},
+    ip17pro:{t:'📱 iPhone 17 Pro — 1 329 €',bt:'Le meilleur rapport valeur',
+      w:'A19 Pro, 33 h, tout l\'essentiel pro sans le prix 18 Pro. Le conseil intelligent quand le client ne veut pas payer l\'ouverture variable. 2ᵉ année de gamme : prix solide.'},
+    ip17promax:{t:'📱 iPhone 17 Pro Max — 1 479 €',bt:'Grand écran, génération précédente',
+      w:'39 h et 6,9″ à 1 479 € — le même prix que le 18 Pro standard en plus grand. Argument : « 130 € de moins que le 18 Pro Max, même écran, génération précédente ». Stock à écouler : le prix descend.'},
+    ip18pro:{t:'📱 iPhone 18 Pro — 1 479 €',bt:'Le polyvalent premium 2026',
+      w:'A20, 36 h, première ouverture variable Apple. Le choix par défaut du client qui veut la dernière génération sans le Max. +150 € vs 17 Pro : le justifier par l\'IA et l\'ouverture variable.'},
+    ip18promax:{t:'📱 iPhone 18 Pro Max — 1 629 €',bt:'Le grand tout-terrain',
+      w:'45 h (la plus longue), 6,9″, 2 To inédit. Pour qui garde son iPhone 4-5 ans : l\'écart de prix se lisse sur la durée. Le Max pour la batterie, le Duo pour l\'écran.'},
+    ipduo:{t:'📱 iPhone Duo — 2 339 €',bt:'Le pliable — facteur wow',
+      w:'7,6″ interne + 5,4″ externe, double batterie 31 h, 23 octobre. Pour le client où l\'écran est un plaisir, pas un outil. Budget non-négociable : le dire franchement. Livraison 23 octobre : proposer précommande.'}
+  }[best];
+  r.className='result show';
+  r.style.background='rgba(0,113,227,.12)';r.style.border='1px solid rgba(0,113,227,.32)';
+  r.innerHTML='<span class="badge" style="background:rgba(0,113,227,.12);border:1px solid rgba(0,113,227,.32)">'+rec.bt+'</span><h3>'+rec.t+'</h3><div class="why">'+rec.w+'</div>';
+}
+
 function computeQuiz(){
   const r=document.getElementById('quizResult');
   if(Object.values(answers).some(v=>v===null)){
