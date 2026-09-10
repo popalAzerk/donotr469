@@ -230,6 +230,33 @@ body.menu-open{overflow:hidden}
 .kn-notes-list li:last-child{border-bottom:none}
 .kn-notes-list .fn-n{font-family:var(--font-m);font-size:10px;color:var(--ink-faint);flex-shrink:0;letter-spacing:.08em;padding-top:2px}
 @media(max-width:640px){.kn-notes-list li{font-size:11px}}
+
+/* --- Comparateur interactif (bloc-notes de comptoir) --- */
+.cmp2-fam{display:flex;gap:10px;flex-wrap:wrap;margin:var(--sp-3) 0 var(--sp-4)}
+.cmp2-fam button{font-size:13px;border:1px solid var(--hair);background:none;border-radius:980px;padding:10px 18px;color:var(--ink-dim);cursor:pointer;transition:all var(--dur-1) var(--ease)}
+.cmp2-fam button:hover{color:var(--ink)}
+.cmp2-fam button.on{background:var(--blue-link);border-color:var(--blue-link);color:#fff;font-weight:600}
+.cmp2-slots{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:var(--sp-3)}
+.cmp2-slot{border:1px solid var(--hair);border-radius:16px;padding:16px 18px;background:var(--bg)}
+.cmp2-slot .lbl{font-family:var(--font-m);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px}
+.cmp2-slot .prod{font-family:var(--font-d);font-size:22px;font-weight:600;letter-spacing:-.01em}
+.cmp2-slot .sub{font-size:12.5px;color:var(--ink-dim);margin-top:3px}
+.cmp2-pick{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.cmp2-pick button{font-size:12.5px;border:1px solid var(--hair);background:none;border-radius:980px;padding:7px 14px;color:var(--ink-dim);cursor:pointer;transition:all var(--dur-1) var(--ease)}
+.cmp2-pick button:hover{color:var(--ink);border-color:var(--hair-strong)}
+.cmp2-pick button.on{border-color:var(--blue-link);color:var(--blue-link);font-weight:600}
+.cmp2-swap{align-self:center;border:1px solid var(--hair);background:var(--glass);color:var(--ink-dim);border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;transition:all var(--dur-1) var(--ease)}
+.cmp2-swap:hover{color:var(--ink);border-color:var(--hair-strong)}
+.cmp2-out{border:1px solid var(--hair);border-radius:20px;overflow:hidden;background:var(--glass)}
+.cmp2-out table{width:100%;border-collapse:collapse;font-size:14px}
+.cmp2-out th{font-family:var(--font-m);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);text-align:left;padding:12px 16px;border-bottom:1px solid var(--hair)}
+.cmp2-out td{padding:11px 16px;border-bottom:1px solid var(--hair-soft);color:var(--ink-dim);vertical-align:top}
+.cmp2-out tr:last-child td{border-bottom:none}
+.cmp2-out td:first-child{color:var(--ink-faint);font-size:13px;white-space:nowrap}
+.cmp2-out td.win{color:var(--green);font-weight:600}
+.cmp2-out td .why{display:block;font-size:11.5px;color:var(--ink-faint);font-weight:400;margin-top:2px}
+.cmp2-note{padding:12px 16px;font-size:12px;color:var(--ink-faint);border-top:1px solid var(--hair);background:var(--glass)}
+@media(max-width:640px){.cmp2-slots{grid-template-columns:1fr}}
 @media(max-width:640px){
   .carousel{grid-auto-columns:min(88%,420px)}
 @media(max-width:640px){
@@ -397,56 +424,31 @@ body.menu-open{overflow:hidden}
 <!-- ============ VUES MODULES (menu) ============ -->
 <div class="view" id="view-cmp">
 
-<section id="m5m6">
+<section>
   <div class="sect-head reveal">
-    <div class="kicker">Le comparatif · M5 vers M6</div>
-    <h2>M5 vs M6</h2>
-    <p>M6 annoncé le 25 août 2026 — premier 2 nm d'Apple.</p>
+    <div class="kicker">Comparateur</div>
+    <h2>Deux puces, face à face.</h2>
+    <p>Choisis une famille, choisis deux produits. Le tableau se construit tout seul — comme un bloc-notes de comptoir.</p>
   </div>
-  <div class="die-pair reveal" data-delay="1" style="display:flex;gap:14px;margin:var(--sp-3) 0">
-      <figure class="fig" style="flex:1;margin:0">
-        <img src="images/die-3nm.png" alt="Die 3 nm — blocs clairsemés bleus" loading="eager" style="width:100%;border-radius:14px;border:1px solid var(--hair)">
-        <figcaption class="fig-cap" style="font-size:12px;color:var(--ink-dim);margin-top:8px">3 nm — l'espace est un luxe : blocs clairsemés, bleu froid</figcaption>
-      </figure>
-      <figure class="fig" style="flex:1;margin:0">
-        <img src="images/die-2nm.png" alt="Die 2 nm — blocs denses dorés" style="width:100%;border-radius:14px;border:1px solid var(--hair);object-fit:cover" loading="eager">
-        <figcaption class="fig-cap" style="font-size:12px;color:var(--ink-dim)">2 nm — la même surface, 81 blocs : la densité comme richesse</figcaption>
-      </figure>
+
+  <div class="reveal" data-delay="1">
+    <div class="cmp2-fam" id="cmp2Fam"></div>
+    <div class="cmp2-slots">
+      <div class="cmp2-slot">
+        <div class="lbl">Produit A</div>
+        <div class="prod" id="cmp2NameA">—</div>
+        <div class="sub" id="cmp2SubA">Choisis un produit</div>
+        <div class="cmp2-pick" id="cmp2PickA"></div>
+      </div>
+      <button class="cmp2-swap" onclick="cmp2Swap()" title="Inverser A et B">⇄</button>
+      <div class="cmp2-slot">
+        <div class="lbl">Produit B</div>
+        <div class="prod" id="cmp2NameB">—</div>
+        <div class="sub" id="cmp2SubB">Choisis un produit</div>
+        <div class="cmp2-pick" id="cmp2PickB"></div>
+      </div>
     </div>
-  
-  <table class="cmp reveal" data-delay="1">
-    <tr><th>Critère</th><th>M5</th><th>M6</th></tr>
-    <tr><td>CPU (polyvalents)</td><td>10 cœurs (4 super + 6 efficience)</td><td class="win">12 cœurs (2 super + 4 perf + 6 efficience)</td></tr>
-    <tr><td>GPU (images)</td><td>8 ou 10 cœurs</td><td class="win">12 cœurs, accélérateur IA par cœur</td></tr>
-    <tr><td>Neural Engine (IA)</td><td>16 cœurs</td><td class="win">Double 16 cœurs — IA ×2</td></tr>
-    <tr><td>Couloir mémoire</td><td>153 Go/s</td><td class="win">170 Go/s</td></tr>
-    <tr><td>Gravure</td><td>3 nm</td><td class="win">2 nm — 1ʳᵉ puce Apple</td></tr>
-    <tr><td>Mémoire max</td><td>32 Go</td><td>32 Go</td></tr>
-    <tr><td>Machine</td><td>MacBook Pro, iPad Pro, Air, Vision Pro</td><td>Mac mini</td></tr>
-  </table>
-  <div class="verdict v-green reveal" data-delay="1" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(48,209,88,.10);border:1px solid rgba(48,209,88,.28)">
-    💬 <b>En boutique :</b> « Non, le M6 n'est pas deux fois mieux. En usage courant c'est 15 à 30 % de plus. Le vrai saut, c'est l'IA (×2) et la consommation. Vous le sentirez sur la batterie et Siri, pas sur Mail. »
-  </div>
-</section>
-
-
-<section id="ultra">
-  <div class="sect-head reveal">
-    <div class="kicker">Le comparatif · Workstation</div>
-    <h2>M3 Ultra vs M5 Ultra</h2>
-    <p>La super-team de 2025 face au premier quad-die d'Apple (Mac Studio, dès 5 499 $).</p>
-  </div>
-  <table class="cmp reveal" data-delay="1">
-    <tr><th>Critère</th><th>M3 Ultra</th><th>M5 Ultra</th></tr>
-    <tr><td>Architecture</td><td>2 dies via UltraFusion</td><td class="win">4 dies (2× M5 Max) — 1ʳᵉ quad-die Apple</td></tr>
-    <tr><td>CPU</td><td>28/32 cœurs</td><td class="win">30/36 cœurs</td></tr>
-    <tr><td>GPU</td><td>60/80 cœurs</td><td class="win">64/80 cœurs + accélérateur IA</td></tr>
-    <tr><td>Couloir mémoire</td><td>819 Go/s</td><td class="win">1,2 To/s (+50 %)</td></tr>
-    <tr><td>UltraFusion</td><td>—</td><td class="win">UltraFusion 2 : 4,4 To/s, densité ×6</td></tr>
-    <tr><td>Calcul IA (GPU)</td><td>—</td><td class="win">×4,5 vs M3 Ultra</td></tr>
-  </table>
-  <div class="verdict v-purple reveal" data-delay="1" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(191,90,242,.10);border:1px solid rgba(191,90,242,.28)">
-    💬 <b>En boutique :</b> « Le M5 Ultra, c'est le camion de chantier : 8K, 3D lourde, IA géantes hébergées dans la machine. Pour du Excel + Safari + photos, ce serait payer pour un couloir vide — le M6 ou le M5 Max suffisent. »
+    <div id="cmp2Result"></div>
   </div>
 </section>
 
@@ -806,6 +808,86 @@ document.addEventListener('keydown',e=>{
   if(e.key==='Escape'&&document.getElementById('menuOverlay').classList.contains('open'))toggleMenu(false);
 });
 /* boot : si l URL porte #/quiz (lien partage en boutique), ouvrir directement le module */
+
+/* ---- Comparateur interactif : dataset + moteur ---- */
+const CMP2={
+ fams:[
+  {id:'mac',lbl:'Puces Mac',prods:['m5','m6','m5max','m6max','m3ultra','m5ultra']},
+  {id:'iphone',lbl:'iPhone',prods:['ip17pro','ip17promax','ip18pro','ip18promax','ipduo','ipair']},
+  {id:'watch',lbl:'Apple Watch',prods:['s11','s12','u3','u4']},
+  {id:'pods',lbl:'AirPods',prods:['ap4','ap4anc','ap5']}
+ ],
+ P:{
+  m5:{n:'M5',s:'2025 · 3 nm',rows:[['CPU','10 cœurs (4 super + 6 efficience)'],['GPU','8 ou 10 cœurs'],['Neural Engine','16 cœurs'],['Couloir mémoire','153 Go/s'],['Gravure','3 nm'],['Mémoire max','32 Go'],['Machines','MacBook Pro, iPad Pro, Air, Vision Pro']]},
+  m6:{n:'M6',s:'2026 · 1ᵉʳ 2 nm Apple',rows:[['CPU','12 cœurs (2 super + 4 perf + 6 efficience)'],['GPU','12 cœurs + accélérateur IA par cœur'],['Neural Engine','Double 16 cœurs — IA ×2'],['Couloir mémoire','170 Go/s'],['Gravure','2 nm — 1ʳᵉ puce Apple'],['Mémoire max','32 Go'],['Machines','Mac mini']]},
+  m5max:{n:'M5 Max',s:'2025 · haut de gamme',rows:[['CPU','16 cœurs'],['GPU','40 cœurs'],['Couloir mémoire','546 Go/s'],['Machines','MacBook Pro 16", Mac Studio']]},
+  m6max:{n:'M6 Max',s:'2026 · haut de gamme',rows:[['CPU','18 cœurs'],['GPU','44 cœurs + accélérateurs IA'],['Couloir mémoire','600 Go/s'],['Machines','MacBook Pro 16", Mac Studio']]},
+  m3ultra:{n:'M3 Ultra',s:'2025 · 2 dies',rows:[['Architecture','2 dies via UltraFusion'],['CPU','28/32 cœurs'],['GPU','60/80 cœurs'],['Couloir mémoire','819 Go/s'],['Calcul IA (GPU)','—']]},
+  m5ultra:{n:'M5 Ultra',s:'2026 · 1ᵉʳ quad-die',rows:[['Architecture','4 dies (2× M5 Max) — 1ᵉʳ quad-die Apple'],['CPU','30/36 cœurs'],['GPU','64/80 cœurs + accélérateur IA'],['Couloir mémoire','1,2 To/s (+50 %)'],['UltraFusion','UltraFusion 2 : 4,4 To/s, densité ×6'],['Calcul IA (GPU)','×4,5 vs M3 Ultra']]},
+  ip17pro:{n:'iPhone 17 Pro',s:'2025 · 1 099 $',rows:[['Puce','A19 Pro'],['Vidéo','33 h'],['Caméra','48 Mpx ouverture fixe'],['Prix','1 099 $']]},
+  ip17promax:{n:'iPhone 17 Pro Max',s:'2025 · 1 199 $',rows:[['Puce','A19 Pro'],['Vidéo','39 h'],['Caméra','48 Mpx ouverture fixe'],['Prix','1 199 $']]},
+  ip18pro:{n:'iPhone 18 Pro',s:'2026 · 18 sept.',rows:[['Puce','A20 — « énorme gain »'],['Vidéo','36 h¹'],['Caméra','48 Mpx à ouverture variable (1ʳᵉ Apple)'],['Prix','1 199 $ (+100 $)']]},
+  ip18promax:{n:'iPhone 18 Pro Max',s:'2026 · 18 sept.',rows:[['Puce','A20 — « énorme gain »'],['Vidéo','45 h¹'],['Caméra','48 Mpx à ouverture variable (1ʳᵉ Apple)'],['Prix','1 299 $ (+100 $) · 2 To inédit']]},
+  ipduo:{n:'iPhone Duo',s:'2026 · pliable · 23 oct.',rows:[['Écrans','7,6″ interne + 5,4″ externe · 3 000 nits'],['Puce','A20 Pro + vapor chamber'],['Vidéo','31 h¹ (double batterie)'],['Touch ID','Bouton latéral'],['Caméra','48 Mpx Fusion + FaceTime sous écran'],['Prix','1 999 $']]},
+  ipair:{n:'iPhone Air',s:'2025 · 5,6 mm',rows:[['Écran','6,5″ unique'],['Puce','A19 Pro'],['Vidéo','27 h¹'],['Prix','999 $']]},
+  s11:{n:'Watch Series 11',s:'2025 · 399 $',rows:[['Capteur FC','Standard'],['Siri Recap / Audio IA','Non'],['Autonomie','24 h¹'],['Prix','399 $']]},
+  s12:{n:'Watch Series 12',s:'2026 · 18 sept.',rows:[['Capteur FC','Toutes les 5 s²'],['Siri Recap / Audio IA','Oui'],['Autonomie','24 h¹ (stable)'],['Prix','399 $ (céramique 899 $)'],['Compatibilité','iPhone 11 ou + · iOS 27']]},
+  u3:{n:'Watch Ultra 3',s:'2025 · 799 $',rows:[['Autonomie','42 h¹'],['Siri Recap / Audio IA','Non'],['Prix','799 $']]},
+  u4:{n:'Watch Ultra 4',s:'2026 · 18 sept.',rows:[['Autonomie','Plus de 2 jours¹ (record Apple)'],['Siri Recap / Audio IA','Oui'],['Prix','799 $ (stable)'],['Compatibilité','iPhone 11 ou + · iOS 27']]},
+  ap4:{n:'AirPods 4',s:'2025 · 129 $',rows:[['ANC','Sans'],['Autonomie','≈4 h / 20 h boîtier'],['Prix','129 $']]},
+  ap4anc:{n:'AirPods 4 ANC',s:'2025 · 179 $',rows:[['ANC','Oui'],['Autonomie','≈4 h / 20 h boîtier'],['Prix','179 $']]},
+  ap5:{n:'AirPods 5',s:'2026 · 18 sept.',rows:[['ANC','Oui, dès 129 $⁴'],['Réduction','−50 % en plus⁴'],['Autonomie','≈4 h ANC / 20 h boîtier'],['Prix','129 $ · 149 $ (tige + sans fil)']]}
+ },
+ fam:'mac', a:null, b:null,
+ init(){
+   const f=document.getElementById('cmp2Fam');
+   f.innerHTML=this.fams.map(x=>'<button data-f="'+x.id+'" onclick="CMP2.setFam(\''+x.id+'\')">'+x.lbl+'</button>').join('');
+   this.setFam('mac');
+ },
+ setFam(id){
+   this.fam=id; this.a=null; this.b=null;
+   document.querySelectorAll('#cmp2Fam button').forEach(b=>b.classList.toggle('on',b.dataset.f===id));
+   const fam=this.fams.find(x=>x.id===id);
+   const mk=sl=>fam.prods.map(p=>'<button data-p="'+p+'" onclick="CMP2.pick(\''+id+'\',\''+p+'\',\''+sl+'\')">'+this.P[p].n+'</button>').join('');
+   document.getElementById('cmp2PickA').innerHTML=mk('A');
+   document.getElementById('cmp2PickB').innerHTML=mk('B');
+   this.render();
+ },
+ pick(fam,prod,slot){
+   if(slot==='A'){this.a=prod;document.querySelectorAll('#cmp2PickA button').forEach(x=>x.classList.toggle('on',x.dataset.p===prod));}
+   else{this.b=prod;document.querySelectorAll('#cmp2PickB button').forEach(x=>x.classList.toggle('on',x.dataset.p===prod));}
+   this.render();
+ },
+ swap(){const t=this.a;this.a=this.b;this.b=t;this.setFam(this.fam);this.render();},
+ render(){
+   const pa=this.P[this.a],pb=this.P[this.b];
+   document.getElementById('cmp2NameA').textContent=pa?pa.n:'—';
+   document.getElementById('cmp2SubA').textContent=pa?pa.s:'Choisis un produit';
+   document.getElementById('cmp2NameB').textContent=pb?pb.n:'—';
+   document.getElementById('cmp2SubB').textContent=pb?pb.s:'Choisis un produit';
+   const out=document.getElementById('cmp2Result');
+   if(!pa||!pb){out.innerHTML='';return;}
+   const keys=[...new Set([...pa.rows.map(r=>r[0]),...pb.rows.map(r=>r[0])])];
+   let trs='';
+   const NO_WIN=/prix|poids/i;
+   keys.forEach(k=>{
+     const va=(pa.rows.find(r=>r[0]===k)||['','—'])[1];
+     const vb=(pb.rows.find(r=>r[0]===k)||['','—'])[1];
+     const na=va!=='—',nb=vb!=='—';
+     let ca='',cb='';
+     if(na&&nb&&va!==vb&&!NO_WIN.test(k)){
+       const num=s=>{const m=String(s).match(/[\d\s.,]+/);if(!m)return null;const n=parseFloat(m[0].replace(/\s/g,'').replace(',','.'));return isNaN(n)?null:n;};
+       const xa=num(va),xb=num(vb);
+       if(xa!==null&&xb!==null){if(xb>xa){cb='win';}else if(xa>xb){ca='win';}}
+     }
+     trs+='<tr><td>'+k+'</td><td class="'+ca+'">'+va+'</td><td class="'+cb+'">'+vb+'</td></tr>';
+   });
+   out.innerHTML='<div class="cmp2-out"><table><thead><tr><th>Critère</th><th>'+pa.n+'</th><th>'+pb.n+'</th></tr></thead><tbody>'+trs+'</tbody></table>'+
+     '<div class="cmp2-note">En vert : l\'avantage. Notes ¹⁴ en bas de la vue Keynote (conditions officielles). L\'autonomie varie selon l\'utilisation.</div>';
+ }
+};
+document.addEventListener('DOMContentLoaded',function(){CMP2.init();});
+
 (function(){const h=location.hash;if(h.startsWith('#/')&&['cmp','quiz','faq','keynote','quizz'].includes(h.slice(2)))route();})();
 /* ---- Quiz keynote (mecanisme propre, independant du quiz assistant) ---- */
 const KQ=[
