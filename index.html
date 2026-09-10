@@ -231,16 +231,19 @@ body.menu-open{overflow:hidden}
 .kn-notes-list .fn-n{font-family:var(--font-m);font-size:10px;color:var(--ink-faint);flex-shrink:0;letter-spacing:.08em;padding-top:2px}
 @media(max-width:640px){.kn-notes-list li{font-size:11px}}
 
-/* --- GIFs Remotion (métaphores sens) --- */
-.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,34vw);gap:32px;align-items:center}
-.hero .kicker,.hero h1,.hero .lede{grid-column:1}
-.hero .hero-gif{grid-column:2;grid-row:1 / span 3}
-.hero-gif{width:100%;max-width:480px;opacity:.85;border-radius:20px;pointer-events:none;align-self:center}
-.stat-gif{width:100%;max-width:560px;margin:20px auto 0;display:block;border-radius:14px;opacity:.9}
-.as-gif{width:100%;max-width:460px;margin:18px auto 0;display:block;border-radius:14px;opacity:.9}
-.cmp2-gif{width:100%;max-width:520px;margin:14px auto 0;display:block;border-radius:14px;opacity:.85}
-@media(max-width:900px){.hero{grid-template-columns:1fr}.hero-gif{width:88%;margin:14px auto 0;display:block}}
-.hero .scrollcue,.hero .hud{grid-column:1/-1}
+/* --- Les puces, les différences (filtre pills accueil) --- */
+.pillbar{display:flex;gap:10px;flex-wrap:wrap;margin:var(--sp-3) 0 var(--sp-4)}
+.pillbar button{font-size:13px;border:1px solid var(--hair);background:none;border-radius:980px;padding:10px 18px;color:var(--ink-faint);cursor:pointer;transition:all .15s}
+.pillbar button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.chipcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.chipcard{background:var(--glass);border:1px solid var(--hair);border-radius:14px;padding:16px 18px}
+.chipcard h3{font-size:15px;margin:0 0 6px}
+.chipcard .cc-name{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px;font-family:var(--font-m)}
+.chipcard ul{margin:0;padding:0;list-style:none;font-size:13px;line-height:1.55;color:var(--ink-soft)}
+.chipcard ul li{padding:4px 0;border-bottom:1px solid var(--hair)}
+.chipcard ul li:last-child{border-bottom:none}
+.chipcard ul li b{color:var(--ink);font-weight:600}
+.chipcard .cc-price{margin-top:10px;font-size:12px;color:var(--ink-faint)}
 
 /* --- Comparateur interactif (bloc-notes de comptoir) --- */
 .cmp2-fam{display:flex;gap:10px;flex-wrap:wrap;margin:var(--sp-3) 0 var(--sp-4)}
@@ -314,12 +317,25 @@ body.menu-open{overflow:hidden}
   <div class="kicker reveal">Genius Bar · Apple Silicon 2026</div>
   <h1 class="reveal" data-delay="1">Les puces Apple, expliquées simplement.</h1>
   <p class="lede reveal" data-delay="2">M5, M6, Ultra, Neural Engine — le jargon traduit en langage client. Faites glisser, regardez, conseillez.</p>
-  <img class="hero-gif" src="videos/intro-titre.gif" alt="" loading="eager">
   <div class="scrollcue reveal" data-delay="3">Défiler</div>
   <div class="hud hud-tl">Puces Apple</div>
   <div class="hud hud-br">M5 · M6 · Ultra — Édition 2026</div>
 </div>
 
+
+<section id="puces">
+  <div class="sect-head reveal">
+    <div class="kicker">00 — L'essentiel</div>
+    <h2>Quelle puce change quoi&nbsp;?</h2>
+    <p>Sélectionnez la famille, comparez les générations — chiffres constructeur Apple, notes en bas de page.</p>
+  </div>
+  <div class="pillbar reveal" data-delay="1" id="chipFamBar">
+    <button class="pill on" data-cf="mac">Puces Mac</button>
+    <button class="pill" data-cf="iphone">Puces iPhone</button>
+    <button class="pill" data-cf="watch">Puces Watch</button>
+  </div>
+  <div id="chipFamCards" class="reveal" data-delay="1"></div>
+</section>
 
 <section id="image">
   <div class="sect-head reveal">
@@ -339,7 +355,6 @@ body.menu-open{overflow:hidden}
   </div>
   <div class="carousel reveal" data-delay="1" id="car-jargon">
     <div class="ccard">
-      <img class="fig" src="videos/pe-cores.gif" alt="Les 12 cœurs du M6 : tâches lourdes vers les super-cœurs, quotidien vers les cœurs efficience">
       <div class="cbody">
         <div class="ctag">CPU · cœurs</div>
         <h3>Les polyvalents</h3>
@@ -348,7 +363,6 @@ body.menu-open{overflow:hidden}
       </div>
     </div>
     <div class="ccard">
-      <img class="fig" src="videos/gpu-pixels.gif" alt="La grille de pixels peinte à chaque frame par le GPU">
       <div class="cbody">
         <div class="ctag">GPU · graphismes</div>
         <h3>La brigade des images</h3>
@@ -357,7 +371,6 @@ body.menu-open{overflow:hidden}
       </div>
     </div>
     <div class="ccard accent-green">
-      <img class="fig" src="videos/neural-engine.gif" alt="CPU, GPU et Neural Engine comparés : le spécialiste IA domine">
       <div class="cbody">
         <div class="ctag">NPU · Neural Engine</div>
         <h3>Le spécialiste IA</h3>
@@ -366,7 +379,6 @@ body.menu-open{overflow:hidden}
       </div>
     </div>
     <div class="ccard">
-      <img class="fig" src="videos/unified-memory.gif" alt="La mémoire unifiée : une seule grande table, zéro photocopie">
       <div class="cbody">
         <div class="ctag">Unified Memory · RAM</div>
         <h3>Une seule grande table</h3>
@@ -375,7 +387,6 @@ body.menu-open{overflow:hidden}
       </div>
     </div>
     <div class="ccard">
-      <img class="fig" src="videos/bandwidth.gif" alt="Le couloir étroit du MacBook Air face au couloir large du Mac Studio">
       <div class="cbody">
         <div class="ctag">GB/s · TB/s</div>
         <h3>La largeur du couloir</h3>
@@ -384,7 +395,6 @@ body.menu-open{overflow:hidden}
       </div>
     </div>
     <div class="ccard">
-      <img class="fig" src="videos/nm-shrink.gif" alt="Gravure 3 nm vers 2 nm : plus de transistors au même endroit">
       <div class="cbody">
         <div class="ctag">Process · N2</div>
         <h3>2 nanomètres</h3>
@@ -393,7 +403,6 @@ body.menu-open{overflow:hidden}
       </div>
     </div>
     <div class="ccard accent-purple">
-      <img class="fig" src="videos/ultrafusion.gif" alt="Deux puces M5 Max soudées en une Ultra">
       <div class="cbody">
         <div class="ctag">Fusion · Quad-die</div>
         <h3>UltraFusion</h3>
@@ -417,7 +426,7 @@ body.menu-open{overflow:hidden}
   </div>
   <div class="stats">
     <div class="stat reveal"><div class="num" data-count="2"><span>0</span><span class="u">nm</span></div><div class="lbl">gravure du M6 — première puce Apple en 2 nm</div></div>
-  <img class="stat-gif" src="videos/bandwidth.gif" alt="153 Go/s vs 1,2 To/s" loading="lazy">
+  
   
   
     <div class="stat reveal" data-delay="1"><div class="num" data-count="2" data-decimal="1"><span>0,0</span><span class="u">To/s</span></div><div class="lbl">de bande passante sur M5 Ultra (×1,5 vs M3 Ultra)</div></div>
@@ -473,7 +482,6 @@ body.menu-open{overflow:hidden}
     <div class="kicker">Assistant de recommandation</div>
     <h2>Quelle puce pour quel usage ?</h2>
     <p>4 questions posées au client, une recommandation en sortie.</p>
-  <img class="as-gif" src="videos/unified-memory.gif" alt="Mémoire unifiée" loading="lazy">
   </div>
   
   <div class="quizwrap">
@@ -848,6 +856,43 @@ document.querySelectorAll('.carousel').forEach(c=>{
   update();
 });
 
+
+/* ---- Les puces, les différences (accueil) ---- */
+const CHIPFAM={
+ mac:{cards:[
+  {n:'M5',gen:'2025 · MacBook Air/Pro, iMac, iPad Pro',rows:[['CPU','10 cœurs'],['GPU','10 cœurs + Neural Accelerators'],['Neural Engine','16 cœurs'],['Bande passante','153 Go/s'],['Gravure','3 nm'],['Mémoire max','32 Go']],price:'À partir de 1 159 € (MacBook Air)'},
+  {n:'M6',gen:'2026 · MacBook Air/Pro, iMac, iPad Pro',rows:[['CPU','12 cœurs'],['GPU','12 cœurs, IA ×2 vs M5'],['Neural Engine','16 cœurs, IA ×2'],['Bande passante','≈153 Go/s'],['Gravure','2 nm — 1ʳᵉ Apple'],['Mémoire max','36 Go']],price:'À partir de 1 159 € (MacBook Air M6 à venir)'},
+  {n:'M5 Pro / M5 Max',gen:'2025 · MacBook Pro',rows:[['CPU','14 / 16 cœurs'],['GPU','14 / 20 cœurs'],['Couloir mémoire','228 / 410 Go/s'],['Mémoire max','64 / 128 Go'],['UltraFusion','—']],price:'À partir de 2 399 € (MacBook Pro)'},
+  {n:'M6 Pro / M6 Max',gen:'2026 · MacBook Pro',rows:[['CPU','16 / 20 cœurs'],['GPU','IA ×2 vs M5 Pro/Max'],['Couloir mémoire','élargi'],['Mémoire max','128 Go'],['Gravure','2 nm']],price:'À partir de 2 399 € (MacBook Pro M6)'},
+  {n:'M3 Ultra',gen:'2025 · Mac Studio',rows:[['CPU','32 cœurs'],['GPU','40 / 80 cœurs'],['Bande passante','819 Go/s'],['Mémoire max','256 Go (512 en option)'],['UltraFusion','2 dies']],price:'À partir de 3 899 € (Mac Studio)'},
+  {n:'M5 Ultra',gen:'2026 · Mac Studio',rows:[['CPU','32 cœurs'],['GPU','80 cœurs'],['Bande passante','1,2 To/s — 8× Air'],['Mémoire max','512 Go'],['IA','×4,5 vs M5']],price:'À partir de 4 299 € (Mac Studio)'}
+ ]},
+ iphone:{cards:[
+  {n:'A19 Pro',gen:'2025 · iPhone 17 Pro/Pro Max, Air',rows:[['Gravure','3 nm'],['IA','Apple Intelligence'],['Caméra','48 Mpx ouverture fixe']],price:'iPhone 17 Pro 1 329 € · Air 1 159 €'},
+  {n:'A20',gen:'2026 · iPhone 18 Pro/Pro Max, Duo',rows:[['Gravure','2 nm'],['IA','énorme gain (Apple)'],['Neural Engine','IA ×2 vs A19'],['Caméra','ouverture variable (1ʳᵉ Apple)']],price:'18 Pro 1 479 € · 18 Pro Max 1 629 €'},
+  {n:'A20 Pro',gen:'2026 · iPhone Duo',rows:[['Refroidissement','vapor chamber'],['Double batterie','31 h¹'],['Écrans','7,6″ + 5,4″ externes']],price:'iPhone Duo 2 339 € · 23 octobre'}
+ ]},
+ watch:{cards:[
+  {n:'S11 SiP',gen:'2025 · Watch Series 11 / SE 3',rows:[['Capteur FC','standard'],['Siri IA','Non'],['Autonomie','24 h¹']],price:'Watch SE 3 à partir de 249 €'},
+  {n:'S12 SiP',gen:'2026 · Watch Series 12',rows:[['Capteur FC','toutes les 5 s²'],['Siri Recap / Audio IA','Oui'],['Autonomie','24 h¹ stable']],price:'Watch S12 449 € (céramique 1 049 €)'},
+  {n:'Ultra 4',gen:'2026 · Watch Ultra 4',rows:[['Autonomie','> 2 jours¹ (record)'],['Tests terrain','course sans iPhone³'],['Siri IA','Oui'],['Boîtier','titanium']],price:'Watch Ultra 4 899 €'}
+ ]}
+};
+function renderChipFam(id){
+  const wrap=document.getElementById('chipFamCards');
+  wrap.innerHTML='<div class="chipcards">'+CHIPFAM[id].cards.map(c=>
+    '<div class="chipcard"><div class="cc-name">'+c.n+'</div><h3>'+c.gen+'</h3><ul>'+
+    c.rows.map(r=>'<li><b>'+r[0]+'</b> — '+r[1]+'</li>').join('')+
+    '</ul><div class="cc-price">'+c.price+'</div></div>').join('')+'</div>';
+  wrap.classList.remove('reveal'); // pas d'animation au re-render
+}
+document.querySelectorAll('#chipFamBar button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('#chipFamBar button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  renderChipFam(b.dataset.cf);
+}));
+renderChipFam('mac');
+
 /* ---- Reveals au scroll ---- */
 const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
@@ -995,7 +1040,7 @@ const CMP2={
      trs+='<tr><td>'+k+'</td><td class="'+ca+'">'+va+'</td><td class="'+cb+'">'+vb+'</td></tr>';
    });
    out.innerHTML='<div class="cmp2-out"><table><thead><tr><th>Critère</th><th>'+pa.n+'</th><th>'+pb.n+'</th></tr></thead><tbody>'+trs+'</tbody></table>'+
-     '<img class="cmp2-gif" src="videos/nm-shrink.gif" alt="3 nm vers 2 nm" loading="lazy"><div class="cmp2-note">En vert : l\'avantage. Notes ¹⁴ en bas de la vue Keynote (conditions officielles). L\'autonomie varie selon l\'utilisation.</div>';
+     '<div class="cmp2-note">En vert : l\'avantage. Notes ¹⁴ en bas de la vue Keynote (conditions officielles). L\'autonomie varie selon l\'utilisation.</div>';
  }
 };
 document.addEventListener('DOMContentLoaded',function(){CMP2.init();});
