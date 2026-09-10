@@ -571,6 +571,49 @@ body.menu-open{overflow:hidden}
       <div class="result" id="ipQuizResult" style="margin-top:var(--sp-3)"></div>
     </div>
   </div>
+
+  <div class="sect-head reveal" style="margin-top:var(--sp-6)">
+    <div class="kicker">Assistant Apple Watch</div>
+    <h2>Quelle Apple Watch pour quel client&nbsp;?</h2>
+    <p>4 questions — Series 12 ou Ultra 4, le bon choix dès la première question.</p>
+  </div>
+  <div class="quizwrap">
+    <div class="reveal">
+      <div class="q">
+        <h3><span class="n">1</span>Sport et environnement&nbsp;?</h3>
+        <div class="opts" data-wq="1">
+          <button class="opt" data-v="0">Quotidien — pas de sport extrême</button>
+          <button class="opt" data-v="1">Randonnée, trail, nage en eau libre, altitude</button>
+          <button class="opt" data-v="2">Expéditions plusieurs jours sans recharge</button>
+        </div>
+      </div>
+      <div class="q">
+        <h3><span class="n">2</span>Autonomie attendue&nbsp;?</h3>
+        <div class="opts" data-wq="2">
+          <button class="opt" data-v="0">Une journée — recharge chaque nuit, ça va</button>
+          <button class="opt" data-v="1">Le week-end entier sans y penser</button>
+        </div>
+      </div>
+      <div class="q">
+        <h3><span class="n">3</span>Suivi santé du client&nbsp;?</h3>
+        <div class="opts" data-wq="3">
+          <button class="opt" data-v="0">Pas de suivi particulier</button>
+          <button class="opt" data-v="1">Cardio sérieux — mesure en continu toutes les 5 secondes</button>
+        </div>
+      </div>
+      <div class="q">
+        <h3><span class="n">4</span>Robustesse et budget&nbsp;?</h3>
+        <div class="opts" data-wq="4">
+          <button class="opt" data-v="0">Léger et discret, budget contenu</button>
+          <button class="opt" data-v="1">Titanium, écran le plus solide, 899 € OK</button>
+        </div>
+      </div>
+      <button class="opt" style="width:100%;text-align:center;font-weight:600;border-color:var(--blue);margin-top:var(--sp-3)" onclick="computeWQuiz()">Voir la recommandation Watch</button>
+    </div>
+    <div style="align-self:start">
+      <div class="result" id="wQuizResult" style="margin-top:var(--sp-3)"></div>
+    </div>
+  </div>
 </section>
 
 </div>
@@ -1012,6 +1055,50 @@ document.querySelectorAll('.opts').forEach(g=>{
     });
   });
 });
+
+
+const wAnswers={};
+document.querySelectorAll('[data-wq]').forEach(box=>{
+  box.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{
+    box.querySelectorAll('.opt').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    wAnswers[box.dataset.wq]=parseInt(b.dataset.v);
+  }));
+});
+function computeWQuiz(){
+  const r=document.getElementById('wQuizResult');
+  if(Object.keys(wAnswers).length<4){
+    r.className='result show';
+    r.style.background='rgba(255,159,10,.10)';r.style.border='1px solid rgba(255,159,10,.3)';
+    r.innerHTML='<h3>Répondez aux 4 questions</h3><div class="why">Series 12 ou Ultra 4, avec le bon argument.</div>';
+    return;
+  }
+  const [sport,auto,sante,rob]=Object.keys(wAnswers).sort().map(k=>wAnswers[k]);
+  const score={s12:0,u4:0};
+  // Sport
+  if(sport===0){score.s12+=3;}
+  if(sport===1){score.u4+=2;score.s12+=1;}
+  if(sport===2){score.u4+=4;}
+  // Autonomie
+  if(auto===0){score.s12+=1;}
+  if(auto===1){score.u4+=3;}
+  // Santé
+  if(sante===1){score.s12+=2;}   // le capteur 5 s² est la force de la S12 (note ²)
+  if(sante===0){score.s12+=1;}
+  // Robustesse/budget
+  if(rob===0){score.s12+=2;}
+  if(rob===1){score.u4+=3;}
+  const best=Object.entries(score).sort((a,b)=>b[1]-a[1])[0][0];
+  const rec={
+    s12:{t:'⌚ Apple Watch Series 12 — 449 €',bt:'Le quotidien, la santé, le style',
+      w:'Capteur FC toutes les 5 s² (le suivi cardio le plus fin, validé par l\'étude Apple juil.-août 2026²), Siri Recap + Audio IA, 24 h¹. Céramique disponible à 1 049 € si le client veut monter en gamme sans passer à l\'Ultra. Nécessite iPhone 11 ou + avec iOS 27.'},
+    u4:{t:'⌚ Apple Watch Ultra 4 — 899 €',bt:'L\'aventure et l\'endurance',
+      w:'Plus de 2 jours d\'autonomie¹ (record Apple, tests terrain course sans iPhone³), boîtier titanium, écran le plus solide, Siri Recap + Audio IA. Le même prix que l\'an dernier (899 €, stable). Pour expéditions, sport extrême et client qui oublie de recharger. Nécessite iPhone 11 ou + avec iOS 27.'}
+  }[best];
+  r.className='result show';
+  r.style.background='rgba(0,113,227,.12)';r.style.border='1px solid rgba(0,113,227,.32)';
+  r.innerHTML='<span class="badge" style="background:rgba(0,113,227,.12);border:1px solid rgba(0,113,227,.32)">'+rec.bt+'</span><h3>'+rec.t+'</h3><div class="why">'+rec.w+'</div>';
+}
 
 const ipAnswers={};
 document.querySelectorAll('[data-iq]').forEach(box=>{
