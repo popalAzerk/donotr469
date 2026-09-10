@@ -220,6 +220,16 @@ body.menu-open{overflow:hidden}
 .when{border:1px solid var(--hair);border-radius:980px;padding:9px 18px;font-size:12.5px;color:var(--ink-dim)}
 .when b{color:var(--ink);font-weight:600}
 @media(max-width:640px){.kn-chips{grid-template-columns:repeat(2,1fr)}.kn-card{padding:24px 20px 20px}}
+
+/* --- Notes de bas de page keynote (methodologie Apple) --- */
+.fn-ref{font-size:.65em;vertical-align:super;color:var(--ink-faint);font-family:var(--font-m);cursor:help}
+.kn-notes{margin-top:var(--sp-5);border-top:1px solid var(--hair);padding-top:var(--sp-4)}
+.kn-notes summary{cursor:pointer;font-family:var(--font-m);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);list-style:none}
+.kn-notes-list{margin:14px 0 0;padding:0;list-style:none}
+.kn-notes-list li{display:flex;gap:10px;font-size:12px;line-height:1.55;color:var(--ink-dim);padding:8px 0;border-bottom:1px solid var(--hair-soft)}
+.kn-notes-list li:last-child{border-bottom:none}
+.kn-notes-list .fn-n{font-family:var(--font-m);font-size:10px;color:var(--ink-faint);flex-shrink:0;letter-spacing:.08em;padding-top:2px}
+@media(max-width:640px){.kn-notes-list li{font-size:11px}}
 @media(max-width:640px){
   .carousel{grid-auto-columns:min(88%,420px)}
 @media(max-width:640px){
@@ -540,14 +550,14 @@ body.menu-open{overflow:hidden}
     <div class="kn-chips">
       <div class="chip"><b>7,6″ + 5,4″</b><span>écrans interne + externe</span></div>
       <div class="chip"><b>A20 Pro</b><span>+ vapor chamber</span></div>
-      <div class="chip"><b>31 h</b><span>de vidéo</span></div>
+      <div class="chip"><b>31 h</b><span>de vidéo <span class="fn-ref">1</span></span></div>
       <div class="chip"><b>1 999 $</b><span>à partir de</span></div>
     </div>
     <div class="kn-vs">Face à l'iPhone Air</div>
     <ul class="kn-delta">
       <li>Écrans : 7,6″ interne + 5,4″ externe, même ratio, 3 000 nits <b>vs 6,5″ unique</b></li>
       <li>Touch ID latéral, Camera Control + Siri Camera, FaceTime sous l'écran <b>nouveautés inédites</b></li>
-      <li>Autonomie double batterie <b class="up">31 h vs 27 h</b></li>
+      <li>Autonomie double batterie <b class="up">31 h vs 27 h</b><span class="fn-ref">1</span></li>
       <li>Céramique 3× plus résistante aux rayures, titane grade 5, IP68 <b>Ceramic Shield 2</b></li>
       <li>Prix <b>1 999 $ vs 999 $</b></li>
     </ul>
@@ -562,13 +572,13 @@ body.menu-open{overflow:hidden}
     <div class="kn-chips">
       <div class="chip"><b>A20</b><span>« énorme gain »</span></div>
       <div class="chip"><b>48 Mpx</b><span>ouverture variable</span></div>
-      <div class="chip"><b>36 h / 45 h</b><span>de vidéo</span></div>
+      <div class="chip"><b>36 h / 45 h</b><span>de vidéo <span class="fn-ref">1</span></span></div>
       <div class="chip"><b>+100 $</b><span>1 199 / 1 299 $</span></div>
     </div>
     <div class="kn-vs">Face aux 17 Pro / Pro Max</div>
     <ul class="kn-delta">
       <li>Caméra : ouverture variable (1ʳᵉ Apple) <b>vs ouverture fixe</b></li>
-      <li>Vidéo <b class="up">36 h / 45 h vs 33 h / 39 h</b></li>
+      <li>Vidéo <b class="up">36 h / 45 h vs 33 h / 39 h</b><span class="fn-ref">1</span></li>
       <li>Dynamic Island 3 live activities · 2 To inédit sur Pro Max <b>nouveautés</b></li>
       <li>« Apple Reference Image » anti-IA <b>indisponible UE au lancement</b></li>
     </ul>
@@ -583,13 +593,13 @@ body.menu-open{overflow:hidden}
     <div class="kn-chips">
       <div class="chip"><b>129 $</b><span>4 h ANC / 20 h boîtier</span></div>
       <div class="chip"><b>149 $</b><span>volume sur tige · boîtier sans fil</span></div>
-      <div class="chip"><b>−50 %</b><span>de bruit en plus</span></div>
+      <div class="chip"><b>−50 %</b><span>de bruit en plus <span class="fn-ref">4</span></span></div>
       <div class="chip"><b>18 sept.</b><span>disponibilité</span></div>
     </div>
     <div class="kn-vs">Face aux AirPods 4</div>
     <ul class="kn-delta">
       <li>ANC dès 129 $ <b>vs réservé au modèle 179 $</b></li>
-      <li>Réduction de bruit <b class="up">−50 % en plus</b></li>
+      <li>Réduction de bruit <b class="up">−50 % en plus</b><span class="fn-ref">4</span></li>
     </ul>
     <div class="verdict" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(191,90,242,.10);border:1px solid rgba(191,90,242,.28)">💬 <b>En boutique :</b> l'ANC en entrée de gamme réduit l'upsell vers AirPods Pro. Réparation = remplacement simple ; garantie légale 2 ans (vendeur) inchangée.</div>
   </article>
@@ -600,8 +610,8 @@ body.menu-open{overflow:hidden}
     <h3>Le capteur qui compte 5 fois par seconde.</h3>
     <p class="kn-hook">FC mesurée toutes les 5 s, VFC jusqu'à toutes les 5 min. Siri Recap et Audio Intelligence arrivent sur la montre. App Santé repensée, onglet « Longevity ».</p>
     <div class="kn-chips">
-      <div class="chip"><b>5 s</b><span>fréquence cardiaque</span></div>
-      <div class="chip"><b>24 h</b><span>autonomie (stable)</span></div>
+      <div class="chip"><b>5 s</b><span>fréquence cardiaque <span class="fn-ref">2</span></span></div>
+      <div class="chip"><b>24 h</b><span>autonomie (stable) <span class="fn-ref">1</span></span></div>
       <div class="chip"><b>399 $</b><span>céramique 899 $</span></div>
       <div class="chip"><b>18 sept.</b><span>disponibilité</span></div>
     </div>
@@ -611,6 +621,7 @@ body.menu-open{overflow:hidden}
       <li>Siri Recap + Audio Intelligence <b class="up">nouveau</b></li>
       <li>Autonomie / prix <b>24 h / 399 $ — inchangés</b></li>
     </ul>
+    <p style="font-size:12.5px;color:var(--ink-faint);margin-top:14px">⚠︎ Nécessite un iPhone 11 (ou modèle ultérieur) avec iOS 27 ou version ultérieure.</p>
     <div class="verdict" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(0,113,227,.10);border:1px solid rgba(0,113,227,.28)">💬 <b>En boutique :</b> le saut est capteur + IA, pas prix/autonomie. Questions vie privée attendues au comptoir (où vit l'audio, comment désactiver).</div>
   </article>
 
@@ -620,7 +631,7 @@ body.menu-open{overflow:hidden}
     <h3>Deux jours. Un record Apple.</h3>
     <p class="kn-hook">Siri Recap + Audio Intelligence, autonomie « plus de deux jours » — un record pour la montre d'aventure.</p>
     <div class="kn-chips">
-      <div class="chip"><b>&gt;48 h</b><span>autonomie</span></div>
+      <div class="chip"><b>&gt;48 h</b><span>autonomie <span class="fn-ref">3</span></span></div>
       <div class="chip"><b>799 $</b><span>prix stable</span></div>
       <div class="chip"><b>18 sept.</b><span>disponibilité</span></div>
     </div>
@@ -642,6 +653,18 @@ body.menu-open{overflow:hidden}
     <span class="when"><b>18 sept.</b> 18 Pro · AirPods 5 · Watches</span>
     <span class="when"><b>23 oct.</b> iPhone Duo en magasin</span>
   </div>
+
+  <details class="kn-notes reveal" data-delay="1">
+    <summary>Notes de bas de page — conditions officielles des chiffres</summary>
+    <ol class="kn-notes-list">
+      <li><span class="fn-n">1</span><span>Par rapport aux modèles de génération précédente. L'autonomie varie en fonction de l'utilisation.</span></li>
+      <li><span class="fn-n">2</span><span>D'après les données d'une étude menée par Apple en juillet et août 2026 sur la précision de la mesure de la fréquence cardiaque, en se basant sur les objets connectés les plus vendus disponibles sur le marché en juin 2026. Pour plus d'informations, consultez apple.com/HRAccuracy.</span></li>
+      <li><span class="fn-n">3</span><span>Entraînement testé sans iPhone avec le capteur de fréquence cardiaque activé pendant des séances de course en plein air. Exercice prolongé : mode Économie d'énergie actif, mesures de forme indisponibles. Exercice ultraprolongé : mode Économie d'énergie actif, alertes et temps au tour désactivés, certaines mesures indisponibles. Tests réalisés par Apple en juillet et août 2026 sur des prototypes d'Apple Watch Ultra 4 équipés de préversions logicielles. L'autonomie varie en fonction de l'utilisation, de la configuration, du réseau cellulaire, de la puissance du signal et de nombreux autres facteurs. Les résultats réels sont susceptibles de varier.</span></li>
+      <li><span class="fn-n">4</span><span>Réduction active du bruit jusqu'à 1,5× supérieure à celle des AirPods 4 avec Réduction active du bruit. Tests réalisés conformément à la norme IEC 60268-24.</span></li>
+      <li><span class="fn-n">✓</span><span>L'Apple Watch Series 12, l'Apple Watch Ultra 4 et l'Apple Watch SE 3 nécessitent un iPhone 11 (ou modèle ultérieur) avec iOS 27 (ou version ultérieure).</span></li>
+      <li><span class="fn-n">✓</span><span>Les fonctionnalités sont sujettes à modification. La disponibilité des fonctionnalités, des applications et des services peut varier en fonction des régions et des langues.</span></li>
+    </ol>
+  </details>
 
   <p class="reveal" data-delay="1" style="font-size:12px;color:var(--ink-faint)">Sources : Apple Newsroom (communiqué iPhone Duo), The Verge, Reuters, Bloomberg — 9 septembre 2026.</p>
 </section>
