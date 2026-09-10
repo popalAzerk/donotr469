@@ -194,10 +194,38 @@ body.menu-open{overflow:hidden}
 .view.active{display:block}
 @media(max-width:640px){.menu-item .desc{display:none}.menu-item button{gap:14px;padding:14px 0}}
 
+
+/* --- Vue keynote : cartes produits editoriales --- */
+.kn-jump{display:flex;gap:10px;flex-wrap:wrap;margin:var(--sp-3) 0 var(--sp-5)}
+.kn-jump a{font-size:12px;letter-spacing:.06em;border:1px solid var(--hair);border-radius:980px;padding:8px 16px;color:var(--ink-dim);text-decoration:none;transition:color var(--dur-1) var(--ease),border-color var(--dur-1) var(--ease)}
+.kn-jump a:hover{color:var(--ink);border-color:var(--hair-strong)}
+.kn-card{position:relative;border:1px solid var(--hair);border-radius:20px;padding:30px 32px 26px;background:var(--glass);scroll-margin-top:90px}
+.kn-card + .kn-card{margin-top:var(--sp-4)}
+.kn-card.star{border-color:rgba(0,113,227,.55);box-shadow:0 0 60px rgba(0,113,227,.08)}
+.kn-idx{position:absolute;top:26px;right:30px;font-family:var(--font-m);font-size:13px;color:var(--ink-faint);letter-spacing:.1em}
+.kn-tag{font-family:var(--font-m);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-link);margin-bottom:10px}
+.kn-card h3{font-family:var(--font-d);font-size:clamp(26px,4.5vw,40px);font-weight:600;letter-spacing:-.02em;margin:0 0 6px}
+.kn-hook{font-size:16px;color:var(--ink-dim);max-width:640px;line-height:1.5;margin:0}
+.kn-chips{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 4px}
+.chip{border:1px solid var(--hair);border-radius:14px;padding:14px 16px;background:var(--bg)}
+.chip b{display:block;font-family:var(--font-d);font-size:clamp(19px,2.4vw,26px);font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.chip span{display:block;font-size:10.5px;color:var(--ink-dim);letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
+.kn-vs{font-family:var(--font-m);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin:22px 0 6px}
+.kn-delta{list-style:none;margin:0;padding:0;font-size:14px}
+.kn-delta li{display:flex;justify-content:space-between;gap:16px;padding:7px 0;border-bottom:1px solid var(--hair-soft);color:var(--ink-dim)}
+.kn-delta li:last-child{border-bottom:none}
+.kn-delta li b{color:var(--ink);font-weight:600;white-space:nowrap}
+.kn-delta li b.up{color:var(--green)}
+.kn-tl{display:flex;gap:10px;flex-wrap:wrap;margin:var(--sp-5) 0}
+.when{border:1px solid var(--hair);border-radius:980px;padding:9px 18px;font-size:12.5px;color:var(--ink-dim)}
+.when b{color:var(--ink);font-weight:600}
+@media(max-width:640px){.kn-chips{grid-template-columns:repeat(2,1fr)}.kn-card{padding:24px 20px 20px}}
+@media(max-width:640px){
+  .carousel{grid-auto-columns:min(88%,420px)}
 @media(max-width:640px){
   .carousel{grid-auto-columns:min(88%,420px)}
   section{padding:var(--sp-6) 0}
-  .hero-fig{display:none}
+  .hero-fig{z-index:1}
 }
 @media(prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none}
@@ -341,6 +369,8 @@ body.menu-open{overflow:hidden}
   </div>
   <div class="stats">
     <div class="stat reveal"><div class="num" data-count="2"><span>0</span><span class="u">nm</span></div><div class="lbl">gravure du M6 — première puce Apple en 2 nm</div></div>
+  <img src="images/corridor.png" alt="Deux couloirs de données — 153 Go/s vs 1,2 To/s" loading="eager" style="width:100%;max-width:640px;border-radius:20px;border:1px solid var(--hair);margin:var(--sp-3) auto;display:block">
+  
     <div class="stat reveal" data-delay="1"><div class="num" data-count="2" data-decimal="1"><span>0,0</span><span class="u">To/s</span></div><div class="lbl">de bande passante sur M5 Ultra (×1,5 vs M3 Ultra)</div></div>
     <div class="stat reveal" data-delay="2"><div class="num" data-count="4"><span>0</span><span class="u">×</span></div><div class="lbl">calcul IA du M5 Ultra face au M3 Ultra</div></div>
   </div>
@@ -363,6 +393,17 @@ body.menu-open{overflow:hidden}
     <h2>M5 vs M6</h2>
     <p>M6 annoncé le 25 août 2026 — premier 2 nm d'Apple.</p>
   </div>
+  <div class="die-pair reveal" data-delay="1" style="display:flex;gap:14px;margin:var(--sp-3) 0">
+      <figure class="fig" style="flex:1;margin:0">
+        <img src="images/die-3nm.png" alt="Die 3 nm — blocs clairsemés bleus" loading="eager" style="width:100%;border-radius:14px;border:1px solid var(--hair)">
+        <figcaption class="fig-cap" style="font-size:12px;color:var(--ink-dim);margin-top:8px">3 nm — l'espace est un luxe : blocs clairsemés, bleu froid</figcaption>
+      </figure>
+      <figure class="fig" style="flex:1;margin:0">
+        <img src="images/die-2nm.png" alt="Die 2 nm — blocs denses dorés" style="width:100%;border-radius:14px;border:1px solid var(--hair);object-fit:cover" loading="eager">
+        <figcaption class="fig-cap" style="font-size:12px;color:var(--ink-dim)">2 nm — la même surface, 81 blocs : la densité comme richesse</figcaption>
+      </figure>
+    </div>
+  
   <table class="cmp reveal" data-delay="1">
     <tr><th>Critère</th><th>M5</th><th>M6</th></tr>
     <tr><td>CPU (polyvalents)</td><td>10 cœurs (4 super + 6 efficience)</td><td class="win">12 cœurs (2 super + 4 perf + 6 efficience)</td></tr>
@@ -409,6 +450,7 @@ body.menu-open{overflow:hidden}
     <h2>Quelle puce pour quel usage ?</h2>
     <p>4 questions posées au client, une recommandation en sortie.</p>
   </div>
+  <img src="images/team-table.png" alt="L'équipe autour de la table — la mémoire unifiée" loading="eager" style="width:100%;max-width:560px;border-radius:20px;border:1px solid var(--hair);margin-bottom:var(--sp-3)">
   <div class="quizwrap">
     <div class="reveal">
       <div class="q">
@@ -478,69 +520,127 @@ body.menu-open{overflow:hidden}
   <div class="sect-head reveal">
     <div class="kicker">Keynote du 9 septembre 2026 — « Surprise and Shine »</div>
     <h2>Les annonces, en direct d'Apple Park</h2>
-    <p>Première keynote de John Ternus comme CEO. 5 produits annoncés — et iOS 27 le 14 septembre.</p>
+    <p>Première keynote de John Ternus comme CEO. 5 produits — et iOS 27 le 14 septembre.</p>
   </div>
 
-  <div class="reveal" data-delay="1">
-    <h3>iPhone Duo — le « one more thing »</h3>
-    <p>Premier iPhone pliable, format passeport à plat. Interne 7,6″ (+50 % vs 18 Pro Max), externe 5,4″ (90 % de la surface de l'18 Pro), ProMotion / Always On, 3 000 nits. Touch ID sur le bouton latéral, Camera Control + mode Siri Camera, caméra FaceTime sous l'écran interne. A20 Pro, vapor chamber, double batterie : jusqu'à 31 h de vidéo. 48 Mpx Fusion, nanotexture anti-reflets, titane grade 5, Ceramic Shield 2 (3× plus résistant aux rayures), IP68. Star white / night sky. Précommandes 16 oct., en vente 23 oct. À partir de <b>1 999 $</b>. Apple Pencil USB-C « plus tard dans l'année ».</p>
-    <table class="cmp" data-delay="1">
-      <tr><th>Critère</th><th>iPhone Duo</th><th>iPhone Air (actuel)</th></tr>
-      <tr><td>Écrans</td><td class="win">7,6″ interne + 5,4″ externe</td><td>6,5″ unique</td></tr>
-      <tr><td>Puce</td><td class="win">A20 Pro + vapor chamber</td><td>A19 Pro</td></tr>
-      <tr><td>Vidéo</td><td class="win">31 h</td><td>27 h</td></tr>
-      <tr><td>Prix</td><td>1 999 $</td><td>999 $</td></tr>
-      <tr><td>Dispo</td><td>23 octobre</td><td>Sept. 2025</td></tr>
-    </table>
+  <nav class="kn-jump reveal" data-delay="1">
+    <a href="#kn-duo">iPhone Duo</a>
+    <a href="#kn-pro">iPhone 18 Pro</a>
+    <a href="#kn-pods">AirPods 5</a>
+    <a href="#kn-s12">Watch S12</a>
+    <a href="#kn-u4">Watch Ultra 4</a>
+    <a href="#kn-ios">iOS 27</a>
+  </nav>
+
+  <article class="kn-card star reveal" id="kn-duo" data-delay="1">
+    <div class="kn-idx">01 · ONE MORE THING</div>
+    <div class="kn-tag">iPhone Duo</div>
+    <h3>Le premier iPhone pliable.</h3>
+    <p class="kn-hook">Format passeport à plat. L'écran interne gagne 50 % de surface, le externe garde 90 % de celle de l'iPhone 18 Pro.</p>
+    <div class="kn-chips">
+      <div class="chip"><b>7,6″ + 5,4″</b><span>écrans interne + externe</span></div>
+      <div class="chip"><b>A20 Pro</b><span>+ vapor chamber</span></div>
+      <div class="chip"><b>31 h</b><span>de vidéo</span></div>
+      <div class="chip"><b>1 999 $</b><span>à partir de</span></div>
+    </div>
+    <div class="kn-vs">Face à l'iPhone Air</div>
+    <ul class="kn-delta">
+      <li>Écrans : 7,6″ interne + 5,4″ externe, même ratio, 3 000 nits <b>vs 6,5″ unique</b></li>
+      <li>Touch ID latéral, Camera Control + Siri Camera, FaceTime sous l'écran <b>nouveautés inédites</b></li>
+      <li>Autonomie double batterie <b class="up">31 h vs 27 h</b></li>
+      <li>Céramique 3× plus résistante aux rayures, titane grade 5, IP68 <b>Ceramic Shield 2</b></li>
+      <li>Prix <b>1 999 $ vs 999 $</b></li>
+    </ul>
     <div class="verdict" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(191,90,242,.10);border:1px solid rgba(191,90,242,.28)">💬 <b>En boutique :</b> produit 100 % nouveau — zéro historique de pannes, pièces absentes des flux les premières semaines. Touch ID latéral, nanotexture et double batterie = diagnostics inédits. Ne promettre aucun délai avant les guides officiels Apple.</div>
-  </div>
+  </article>
 
-  <div class="reveal" data-delay="1">
-    <h3>iPhone 18 Pro / 18 Pro Max</h3>
-    <p>A20 (« énorme gain ») ; première Apple : capteur 48 Mpx à <b>ouverture variable</b> + Pro Controls ; Dynamic Island 3 live activities ; Siri IA sur 300 000+ apps ; 36 h / 45 h de vidéo ; 2 To inédit sur Pro Max ; black / silver / burgundy / glacier. Précommandes 12 sept., dispo 18 sept. <b>Pas d'iPhone 18 standard</b> — reporté au printemps 2027. À noter : « Apple Reference Image » (authentification anti-IA), indisponible dans l'UE au lancement.</p>
-    <table class="cmp" data-delay="1">
-      <tr><th>Critère</th><th>18 Pro / Pro Max</th><th>17 Pro / Max</th></tr>
-      <tr><td>Puce</td><td class="win">A20</td><td>A19 Pro</td></tr>
-      <tr><td>Caméra</td><td class="win">48 Mpx à ouverture variable</td><td>Ouverture fixe</td></tr>
-      <tr><td>Vidéo</td><td class="win">36 h / 45 h</td><td>33 h / 39 h</td></tr>
-      <tr><td>Prix</td><td>1 199 $ / 1 299 $ (+100 $)</td><td>1 099 $ / 1 199 $</td></tr>
-    </table>
-    <div class="verdict" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(0,113,227,.10);border:1px solid rgba(0,113,227,.28)">💬 <b>En boutique :</b> 45 h = moins d'échanges batterie la première année ; ouverture variable = nouvelle mécanique photo au diagnostic. <b>France : prix EUR non communiqués à J+0 — tablez ~+100 € vs la grille 17 Pro (1 329 € / 1 479 €) et vérifiez apple.com/fr avant d'annoncer un tarif.</b></div>
-  </div>
+  <article class="kn-card reveal" id="kn-pro" data-delay="1">
+    <div class="kn-idx">02</div>
+    <div class="kn-tag">iPhone 18 Pro · 18 Pro Max</div>
+    <h3>L'ouverture variable arrive.</h3>
+    <p class="kn-hook">Première Apple : un capteur 48 Mpx à ouverture variable, avec Pro Controls. Siri IA sur 300 000+ apps. Pas d'iPhone 18 standard — reporté au printemps 2027.</p>
+    <div class="kn-chips">
+      <div class="chip"><b>A20</b><span>« énorme gain »</span></div>
+      <div class="chip"><b>48 Mpx</b><span>ouverture variable</span></div>
+      <div class="chip"><b>36 h / 45 h</b><span>de vidéo</span></div>
+      <div class="chip"><b>+100 $</b><span>1 199 / 1 299 $</span></div>
+    </div>
+    <div class="kn-vs">Face aux 17 Pro / Pro Max</div>
+    <ul class="kn-delta">
+      <li>Caméra : ouverture variable (1ʳᵉ Apple) <b>vs ouverture fixe</b></li>
+      <li>Vidéo <b class="up">36 h / 45 h vs 33 h / 39 h</b></li>
+      <li>Dynamic Island 3 live activities · 2 To inédit sur Pro Max <b>nouveautés</b></li>
+      <li>« Apple Reference Image » anti-IA <b>indisponible UE au lancement</b></li>
+    </ul>
+    <div class="verdict" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(0,113,227,.10);border:1px solid rgba(0,113,227,.28)">💬 <b>En boutique :</b> 45 h = moins d'échanges batterie la 1ʳᵉ année ; ouverture variable = nouvelle mécanique photo au diagnostic. <b>France : prix EUR non communiqués à J+0 — tablez ~+100 € vs la grille 17 Pro (1 329 € / 1 479 €) et vérifiez apple.com/fr.</b></div>
+  </article>
 
-  <div class="reveal" data-delay="1">
-    <h3>AirPods 5 — l'ANC descend en gamme</h3>
-    <p>Première fois que la réduction de bruit arrive sur l'entrée de gamme : −50 % de bruit en plus, boîtiers plus durables. À <b>129 $</b> : 4 h ANC / 20 h boîtier. À <b>149 $</b> : volume sur la tige, 5 h ANC, boîtier sans fil. Dispo 18 sept.</p>
-    <table class="cmp" data-delay="1">
-      <tr><th>Critère</th><th>AirPods 5</th><th>AirPods 4</th></tr>
-      <tr><td>ANC</td><td class="win">Dès 129 $</td><td>Réservé au modèle 179 $</td></tr>
-      <tr><td>Réduction de bruit</td><td class="win">−50 % en plus</td><td>—</td></tr>
-      <tr><td>Autonomie</td><td>≈4 h ANC / 20 h boîtier</td><td>≈4 h / 20 h</td></tr>
-    </table>
+  <article class="kn-card reveal" id="kn-pods" data-delay="1">
+    <div class="kn-idx">03</div>
+    <div class="kn-tag">AirPods 5</div>
+    <h3>L'ANC descend en gamme.</h3>
+    <p class="kn-hook">Première fois que la réduction de bruit quitte le haut de gamme : −50 % de bruit en plus, boîtiers plus durables.</p>
+    <div class="kn-chips">
+      <div class="chip"><b>129 $</b><span>4 h ANC / 20 h boîtier</span></div>
+      <div class="chip"><b>149 $</b><span>volume sur tige · boîtier sans fil</span></div>
+      <div class="chip"><b>−50 %</b><span>de bruit en plus</span></div>
+      <div class="chip"><b>18 sept.</b><span>disponibilité</span></div>
+    </div>
+    <div class="kn-vs">Face aux AirPods 4</div>
+    <ul class="kn-delta">
+      <li>ANC dès 129 $ <b>vs réservé au modèle 179 $</b></li>
+      <li>Réduction de bruit <b class="up">−50 % en plus</b></li>
+    </ul>
     <div class="verdict" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(191,90,242,.10);border:1px solid rgba(191,90,242,.28)">💬 <b>En boutique :</b> l'ANC en entrée de gamme réduit l'upsell vers AirPods Pro. Réparation = remplacement simple ; garantie légale 2 ans (vendeur) inchangée.</div>
-  </div>
+  </article>
 
-  <div class="reveal" data-delay="1">
-    <h3>Apple Watch Series 12 — capteur + IA</h3>
-    <p>Fréquence cardiaque mesurée toutes les <b>5 secondes</b> (LED vertes plus grandes), VFC jusqu'à toutes les 5 min. Siri Recap (notes de conversations interrogeables) et Audio Intelligence (détection on-device sirène / sonnette). App Santé repensée avec onglet « Longevity ». 24 h d'autonomie. <b>399 $</b> (céramique 899 $). Dispo 18 sept.</p>
-    <table class="cmp" data-delay="1">
-      <tr><th>Critère</th><th>Series 12</th><th>Series 11</th></tr>
-      <tr><td>Capteur FC</td><td class="win">Toutes les 5 s</td><td>Standard</td></tr>
-      <tr><td>Siri Recap + Audio IA</td><td class="win">Oui</td><td>Non</td></tr>
-      <tr><td>Autonomie / prix</td><td>24 h / 399 $</td><td>24 h / 399 $</td></tr>
-    </table>
-    <div class="verdict" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(0,113,227,.10);border:1px solid rgba(0,113,227,.28)">💬 <b>En boutique :</b> même autonomie et même prix que la S11 — le saut est capteur + IA. Questions vie privée attendues au comptoir (où vit l'audio, comment désactiver).</div>
-  </div>
+  <article class="kn-card reveal" id="kn-s12" data-delay="1">
+    <div class="kn-idx">04</div>
+    <div class="kn-tag">Apple Watch Series 12</div>
+    <h3>Le capteur qui compte 5 fois par seconde.</h3>
+    <p class="kn-hook">FC mesurée toutes les 5 s, VFC jusqu'à toutes les 5 min. Siri Recap et Audio Intelligence arrivent sur la montre. App Santé repensée, onglet « Longevity ».</p>
+    <div class="kn-chips">
+      <div class="chip"><b>5 s</b><span>fréquence cardiaque</span></div>
+      <div class="chip"><b>24 h</b><span>autonomie (stable)</span></div>
+      <div class="chip"><b>399 $</b><span>céramique 899 $</span></div>
+      <div class="chip"><b>18 sept.</b><span>disponibilité</span></div>
+    </div>
+    <div class="kn-vs">Face à la Series 11</div>
+    <ul class="kn-delta">
+      <li>Capteur FC 5 s <b>vs standard</b></li>
+      <li>Siri Recap + Audio Intelligence <b class="up">nouveau</b></li>
+      <li>Autonomie / prix <b>24 h / 399 $ — inchangés</b></li>
+    </ul>
+    <div class="verdict" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(0,113,227,.10);border:1px solid rgba(0,113,227,.28)">💬 <b>En boutique :</b> le saut est capteur + IA, pas prix/autonomie. Questions vie privée attendues au comptoir (où vit l'audio, comment désactiver).</div>
+  </article>
 
-  <div class="reveal" data-delay="1">
-    <h3>Apple Watch Ultra 4 — deux jours</h3>
-    <p>Siri Recap + Audio Intelligence ; autonomie « plus de deux jours », record Apple. <b>799 $</b>, prix stable. Dispo 18 sept.</p>
-    <div class="verdict" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(191,90,242,.10);border:1px solid rgba(191,90,242,.28)">💬 <b>En boutique :</b> nouveautés surtout logicielles — pensez watchOS au comptoir ; autonomie 2 jours pour la montre d'aventure.</div>
-  </div>
+  <article class="kn-card reveal" id="kn-u4" data-delay="1">
+    <div class="kn-idx">04 · ULTRA</div>
+    <div class="kn-tag">Apple Watch Ultra 4</div>
+    <h3>Deux jours. Un record Apple.</h3>
+    <p class="kn-hook">Siri Recap + Audio Intelligence, autonomie « plus de deux jours » — un record pour la montre d'aventure.</p>
+    <div class="kn-chips">
+      <div class="chip"><b>&gt;48 h</b><span>autonomie</span></div>
+      <div class="chip"><b>799 $</b><span>prix stable</span></div>
+      <div class="chip"><b>18 sept.</b><span>disponibilité</span></div>
+    </div>
+    <div class="verdict" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(191,90,242,.10);border:1px solid rgba(191,90,242,.28)">💬 <b>En boutique :</b> nouveautés surtout logicielles — pensez watchOS au comptoir ; autonomie 2 jours = l'argument d'aventure.</div>
+  </article>
 
-  <div class="reveal" data-delay="1">
-    <h3>iOS 27 — le 14 septembre</h3>
-    <p>Siri AI en bêta (anglais), opacité Liquid Glass réglable, nouvelles icônes, widgets extra-larges. Une mise à jour massive <b>4 jours avant la mise en vente des iPhone</b> : à anticiper au comptoir.</p>
+  <article class="kn-card reveal" id="kn-ios" data-delay="1">
+    <div class="kn-idx">05 · LOGICIEL</div>
+    <div class="kn-tag">iOS 27</div>
+    <h3>Le 14 septembre, 4 jours avant la mise en vente.</h3>
+    <p class="kn-hook">Siri AI en bêta (anglais), opacité Liquid Glass réglable, nouvelles icônes, widgets extra-larges.</p>
+    <div class="verdict" style="padding:16px;border-radius:var(--radius);font-size:15px;margin-top:var(--sp-3);background:rgba(0,113,227,.10);border:1px solid rgba(0,113,227,.28)">💬 <b>En boutique :</b> une mise à jour massive juste avant l'afflux des précommandes — à anticiper au comptoir.</div>
+  </article>
+
+  <div class="kn-tl reveal" data-delay="1">
+    <span class="when"><b>12 sept.</b> précommandes 18 Pro</span>
+    <span class="when"><b>14 sept.</b> iOS 27</span>
+    <span class="when"><b>16 sept.</b> précommandes Duo</span>
+    <span class="when"><b>18 sept.</b> 18 Pro · AirPods 5 · Watches</span>
+    <span class="when"><b>23 oct.</b> iPhone Duo en magasin</span>
   </div>
 
   <p class="reveal" data-delay="1" style="font-size:12px;color:var(--ink-faint)">Sources : Apple Newsroom (communiqué iPhone Duo), The Verge, Reuters, Bloomberg — 9 septembre 2026.</p>
